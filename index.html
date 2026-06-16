@@ -1,0 +1,2235 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>四川农业大学 · 新制度经济学期末复习手册 | 2025-2026-2</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=ZCOOL+KuaiLe&display=swap');
+
+:root {
+  --paper-light: #fdfcf9;
+  --paper-mid: #f7f3ec;
+  --paper-dark: #efe9df;
+  --ink-dark: #1a1a2e;
+  --ink-mid: #3d3d56;
+  --ink-light: #6b6b80;
+  --accent-blue: #4a7dff;
+  --accent-red: #e85d5d;
+  --accent-green: #2ecc71;
+  --accent-orange: #f39c12;
+  --accent-purple: #9b59b6;
+  --card-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  --card-hover-shadow: 0 8px 32px rgba(74,125,255,0.12);
+  --hand-font: 'Ma Shan Zheng', 'ZCOOL KuaiLe', 'STKaiti', 'KaiTi', cursive;
+  --body-font: -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--body-font);
+  background: linear-gradient(160deg, #fdfcf9 0%, #f5f0e8 50%, #faf7f2 100%);
+  color: var(--ink-dark);
+  line-height: 1.8;
+  font-size: 15px;
+  scroll-behavior: smooth;
+}
+
+/* 动效系统 */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.animate-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.animate-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 顶部导航 */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(16px) saturate(180%);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+  transition: box-shadow 0.3s;
+}
+.top-nav.scrolled {
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+.top-nav a {
+  color: var(--ink-mid);
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.top-nav a:hover {
+  background: rgba(74,125,255,0.08);
+  color: var(--accent-blue);
+}
+.top-nav a.active {
+  background: var(--accent-blue);
+  color: #fff;
+  font-weight: 600;
+}
+.top-nav .nav-brand {
+  font-family: var(--hand-font);
+  font-size: 18px;
+  color: var(--ink-dark);
+  margin-right: 12px;
+  font-weight: 700;
+}
+.toc-toggle { display: none; }
+.toc-sidebar { display: none; }
+
+/* 主内容 */
+.main-content {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 960px;
+  padding: 30px 40px 80px;
+}
+
+/* 标题系统 */
+.page-title {
+  font-family: var(--hand-font);
+  font-size: 42px;
+  color: var(--ink-dark);
+  text-align: center;
+  margin: 30px 0 10px;
+  letter-spacing: 2px;
+}
+.page-subtitle {
+  text-align: center;
+  color: var(--ink-light);
+  font-size: 15px;
+  margin-bottom: 40px;
+}
+
+.chapter-header {
+  background: linear-gradient(135deg, var(--accent-blue) 0%, #2d5aff 100%);
+  color: #fff;
+  padding: 28px 35px;
+  border-radius: var(--radius);
+  margin: 55px 0 28px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(74,125,255,0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.chapter-header:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(74,125,255,0.28);
+}
+.chapter-header::before {
+  content: '';
+  position: absolute;
+  right: -30px; top: -30px;
+  width: 150px; height: 150px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 50%;
+  animation: pulse 4s ease-in-out infinite;
+}
+.chapter-header::after {
+  content: '';
+  position: absolute;
+  right: 40px; bottom: -20px;
+  width: 80px; height: 80px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 50%;
+}
+.chapter-header h2 {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+.chapter-header .ch-desc {
+  opacity: 0.8;
+  font-size: 13px;
+}
+
+.section-title {
+  font-size: 20px;
+  color: var(--accent-blue);
+  margin: 38px 0 15px;
+  padding-left: 16px;
+  border-left: 4px solid var(--accent-blue);
+  font-weight: 700;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -4px;
+  width: 40px; height: 2px;
+  background: var(--accent-blue);
+  opacity: 0.3;
+  border-radius: 1px;
+}
+
+.subsection-title {
+  font-size: 17px;
+  color: var(--ink-mid);
+  margin: 25px 0 12px;
+  font-weight: 700;
+}
+
+/* 卡片系统 */
+.card {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 22px 25px;
+  margin: 15px 0;
+  box-shadow: var(--card-shadow);
+  border: 1px solid rgba(0,0,0,0.04);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s;
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--card-hover-shadow);
+}
+.card-kraft {
+  background: linear-gradient(135deg, var(--paper-mid) 0%, #f2ede4 100%);
+  border: 1px solid #e6ddd0;
+}
+.card-blue {
+  background: linear-gradient(135deg, #f0f6ff 0%, #e3eeff 100%);
+  border-left: 4px solid var(--accent-blue);
+}
+.card-red {
+  background: linear-gradient(135deg, #fff5f5 0%, #ffe8e8 100%);
+  border-left: 4px solid var(--accent-red);
+}
+.card-green {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  border-left: 4px solid var(--accent-green);
+}
+.card-orange {
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  border-left: 4px solid var(--accent-orange);
+}
+.card-purple {
+  background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+  border-left: 4px solid var(--accent-purple);
+}
+
+/* 知识点标签 */
+.tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  margin: 2px 3px;
+  vertical-align: middle;
+  transition: transform 0.2s;
+}
+.tag:hover { transform: scale(1.08); }
+.tag-choice { background: #e3f2fd; color: #1976d2; }
+.tag-multi { background: #e8f5e9; color: #2e7d32; }
+.tag-judge { background: #fff3e0; color: #e65100; }
+.tag-define { background: #f3e5f5; color: #7b1fa2; }
+.tag-essay { background: #fce4ec; color: #c62828; }
+.tag-analysis { background: #e0f2f1; color: #00695c; }
+
+/* 易错警告 */
+.trap-box {
+  background: linear-gradient(135deg, #fff8f8 0%, #fff0f0 100%);
+  border: 1px solid #fecaca;
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  margin: 15px 0;
+  position: relative;
+  transition: transform 0.2s;
+}
+.trap-box:hover { transform: translateX(3px); }
+.trap-box::before {
+  content: '⚠️ 易错陷阱';
+  font-weight: 700;
+  color: var(--accent-red);
+  font-size: 13px;
+  display: block;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+/* 手写风格区域 */
+.handwrite {
+  font-family: var(--hand-font);
+  font-size: 18px;
+  line-height: 2;
+  color: var(--ink-mid);
+}
+.handwrite-note {
+  font-family: var(--hand-font);
+  background: linear-gradient(180deg, transparent 95%, #c9a96e 95%);
+  background-size: 100% 2em;
+  padding: 10px 15px;
+  font-size: 17px;
+  line-height: 2em;
+  color: #3d2b1f;
+  border-radius: 4px;
+}
+
+/* 对比表格 */
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+  font-size: 14px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.compare-table th {
+  background: linear-gradient(135deg, var(--accent-blue) 0%, #6d9eff 100%);
+  color: #fff;
+  padding: 11px 14px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 13px;
+}
+.compare-table td {
+  padding: 11px 14px;
+  border-bottom: 1px solid #f0ebe2;
+}
+.compare-table tr:nth-child(even) td {
+  background: rgba(74,125,255,0.02);
+}
+.compare-table tr:hover td {
+  background: rgba(74,125,255,0.05);
+  transition: background 0.2s;
+}
+
+/* 思维导图 */
+.mindmap {
+  padding: 20px;
+  overflow-x: auto;
+}
+.mindmap .root {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+}
+.mindmap .center-node {
+  background: var(--accent-blue);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 15px;
+  white-space: nowrap;
+  align-self: center;
+  min-width: fit-content;
+}
+.mindmap .branches {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-left: 20px;
+  position: relative;
+}
+.mindmap .branches::before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 15px;
+  bottom: 15px;
+  width: 2px;
+  background: #bbb;
+}
+.mindmap .branch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.mindmap .branch::before {
+  content: '';
+  width: 10px;
+  height: 2px;
+  background: #bbb;
+  flex-shrink: 0;
+  margin-left: -10px;
+}
+.mindmap .branch-node {
+  background: var(--paper-dark);
+  padding: 6px 14px;
+  border-radius: 15px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-mid);
+  white-space: nowrap;
+  border: 1px solid #d4c4a8;
+}
+.mindmap .branch-node.highlight {
+  background: #ffeaa7;
+  border-color: #f39c12;
+  color: #7d4e00;
+}
+.mindmap .sub-branches {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-left: 10px;
+}
+.mindmap .sub-node {
+  font-size: 12px;
+  color: var(--ink-light);
+  padding: 3px 10px;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #eee;
+}
+
+/* 模拟题 */
+.exam-question {
+  background: #fff;
+  border: 2px solid #e8e4de;
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  margin: 20px 0;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.exam-question:hover {
+  border-color: var(--accent-blue);
+  box-shadow: 0 4px 20px rgba(74,125,255,0.08);
+}
+.exam-question .q-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.exam-question .q-type {
+  background: var(--accent-blue);
+  color: #fff;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.exam-question .q-score {
+  color: var(--accent-red);
+  font-size: 13px;
+  font-weight: 600;
+}
+.exam-question .q-text {
+  font-size: 15px;
+  margin-bottom: 15px;
+  line-height: 1.8;
+}
+.exam-question .q-answer {
+  background: linear-gradient(135deg, #f0faf5 0%, #e0f5ea 100%);
+  border: 1px solid #b8e6cc;
+  border-radius: 10px;
+  padding: 0;
+  font-size: 14px;
+  line-height: 2;
+  overflow: hidden;
+}
+.exam-question .q-answer summary {
+  padding: 14px 20px;
+  background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--accent-green);
+  font-size: 14px;
+  user-select: none;
+  transition: background 0.2s;
+  list-style: none;
+}
+.exam-question .q-answer summary::-webkit-details-marker { display: none; }
+.exam-question .q-answer summary::before { content: '🔒 点击揭晓答案（先自己想一想！）'; }
+.exam-question .q-answer[open] summary::before { content: '📝 参考答案'; }
+.exam-question .q-answer[open] summary {
+  background: linear-gradient(135deg, #bbf7d0 0%, #86efac 100%);
+}
+.exam-question .q-answer .ans-content {
+  padding: 18px 22px;
+  animation: fadeInUp 0.3s ease;
+}
+/* 试卷题号样式 */
+.exam-question .q-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px; height: 28px;
+  background: var(--ink-dark);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 700;
+  margin-right: 10px;
+}
+.exam-question .q-line {
+  border: none;
+  border-bottom: 1px dashed #ccc;
+  display: inline-block;
+  width: 80px;
+  margin: 0 4px;
+  vertical-align: middle;
+}
+
+/* 公式/重点 */
+.key-point {
+  background: linear-gradient(90deg, transparent 0%, #fff3b0 15%, #fff3b0 85%, transparent 100%);
+  padding: 2px 5px;
+  font-weight: 700;
+  color: #b45309;
+}
+.kw {
+  color: var(--accent-blue);
+  font-weight: 700;
+  border-bottom: 2px solid rgba(74,125,255,0.3);
+}
+.kw-red {
+  color: var(--accent-red);
+  font-weight: 700;
+}
+.kw-green {
+  color: var(--accent-green);
+  font-weight: 700;
+}
+/* 自测练习折叠 */
+.self-test {
+  margin: 12px 0;
+  border: 1.5px dashed #c4b5fd;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #faf8ff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.self-test:hover {
+  border-color: var(--accent-purple);
+  box-shadow: 0 2px 12px rgba(155,89,182,0.08);
+}
+.self-test summary {
+  padding: 10px 16px;
+  background: linear-gradient(135deg, #f5f0ff 0%, #ede9fe 100%);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent-purple);
+  user-select: none;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s;
+}
+.self-test summary::-webkit-details-marker { display: none; }
+.self-test summary::before { content: '🎯'; }
+.self-test summary::after {
+  content: '▸';
+  margin-left: auto;
+  transition: transform 0.2s;
+}
+.self-test[open] summary::after { transform: rotate(90deg); }
+.self-test[open] summary {
+  background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
+  border-bottom: 1px solid #ddd6fe;
+}
+.self-test .test-content {
+  padding: 14px 18px;
+  animation: fadeInUp 0.25s ease;
+  font-size: 14px;
+}
+.self-test .test-q {
+  margin: 10px 0;
+  padding: 10px 14px;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #f0ebf8;
+}
+.self-test .test-q .q-stem {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--ink-dark);
+}
+.self-test .test-q .q-opts {
+  padding-left: 18px;
+  color: var(--ink-mid);
+}
+.self-test .test-q .q-opts label {
+  display: block;
+  padding: 3px 0;
+  cursor: pointer;
+}
+.self-test .test-q .q-opts label:hover { color: var(--accent-blue); }
+.self-test .test-reveal {
+  margin-top: 8px;
+  border: none;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.self-test .test-reveal summary {
+  padding: 6px 12px;
+  background: #e8f5e9;
+  font-size: 12px;
+  color: var(--accent-green);
+  border: none;
+}
+.self-test .test-reveal summary::before { content: '💡'; }
+.self-test .test-reveal summary::after { content: ''; }
+.self-test .test-reveal .reveal-ans {
+  padding: 8px 12px;
+  font-size: 13px;
+  color: var(--accent-green);
+  font-weight: 600;
+  background: #f0fdf4;
+}
+.formula {
+  background: #f8f4ed;
+  border: 1px dashed #c9a96e;
+  padding: 12px 18px;
+  border-radius: 6px;
+  margin: 10px 0;
+  font-family: 'Georgia', serif;
+  text-align: center;
+  font-size: 15px;
+}
+
+/* 考试策略信息 */
+.exam-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+  margin: 18px 0;
+}
+.exam-info-item {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 18px;
+  text-align: center;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.25s, box-shadow 0.25s;
+  border: 1px solid rgba(0,0,0,0.03);
+}
+.exam-info-item:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--card-hover-shadow);
+}
+.exam-info-item .num {
+  font-size: 30px;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.exam-info-item .label {
+  font-size: 12px;
+  color: var(--ink-light);
+  margin-top: 5px;
+}
+
+/* 进度指示 */
+.progress-bar {
+  width: 100%;
+  height: 4px;
+  background: var(--paper-dark);
+  border-radius: 2px;
+  margin: 20px 0;
+  position: relative;
+  overflow: hidden;
+}
+.progress-bar .fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-green), var(--accent-blue));
+  border-radius: 2px;
+  transition: width 0.5s;
+}
+
+/* 响应式 */
+@media (max-width: 900px) {
+  .main-content { padding: 20px 16px 60px; }
+  .chapter-header h2 { font-size: 20px; }
+  .page-title { font-size: 30px; }
+  .card:hover { transform: none; }
+  .top-nav { padding: 8px 12px; gap: 4px; }
+  .top-nav a { padding: 5px 10px; font-size: 12px; }
+  .top-nav .nav-brand { display: none; }
+  .two-col { grid-template-columns: 1fr; }
+}
+
+/* 折叠面板 */
+details {
+  margin: 10px 0;
+  border: 1px solid #e8e4de;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+details:hover {
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+}
+details summary {
+  padding: 12px 18px;
+  background: linear-gradient(135deg, var(--paper-mid) 0%, #f9f5ee 100%);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  user-select: none;
+  transition: background 0.2s;
+}
+details summary:hover {
+  background: linear-gradient(135deg, #f0ebe2 0%, #ebe5da 100%);
+}
+details[open] summary {
+  border-bottom: 1px solid #e8e4de;
+}
+details .detail-content {
+  padding: 15px 18px;
+  background: #fff;
+  animation: fadeInUp 0.3s ease;
+}
+
+/* 列表样式 */
+.point-list {
+  list-style: none;
+  padding: 0;
+}
+.point-list li {
+  padding: 8px 0 8px 24px;
+  position: relative;
+  border-bottom: 1px dashed #eee;
+}
+.point-list li::before {
+  content: '▸';
+  position: absolute;
+  left: 6px;
+  color: var(--accent-blue);
+  font-weight: 700;
+}
+.point-list li:last-child { border-bottom: none; }
+
+/* 双栏 */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+@media (max-width: 700px) {
+  .two-col { grid-template-columns: 1fr; }
+}
+
+/* 流程图样式 */
+.flow-steps {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+  margin: 18px 0;
+  justify-content: center;
+}
+.flow-step {
+  background: linear-gradient(135deg, var(--accent-blue) 0%, #6d9eff 100%);
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 22px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 3px 12px rgba(74,125,255,0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.flow-step:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 16px rgba(74,125,255,0.3);
+}
+.flow-arrow {
+  font-size: 20px;
+  color: var(--accent-blue);
+  margin: 0 6px;
+  opacity: 0.6;
+}
+
+/* 引用 */
+blockquote {
+  border-left: 3px solid var(--accent-orange);
+  padding: 10px 15px;
+  margin: 12px 0;
+  background: #fef9f0;
+  border-radius: 0 6px 6px 0;
+  font-style: italic;
+  color: var(--ink-mid);
+}
+
+
+</style>
+</head>
+<body>
+
+<!-- 顶部导航 -->
+<nav class="top-nav" id="topNav">
+  <span class="nav-brand">📖 新制度经济学</span>
+  <a href="#exam-overview">考试概览</a>
+  <a href="#ch1">①人的假定</a>
+  <a href="#ch2">②交易费用</a>
+  <a href="#ch3">③科斯定理</a>
+  <a href="#ch4">④产权理论</a>
+  <a href="#ch5">⑤契约理论</a>
+  <a href="#ch6">⑥企业理论</a>
+  <a href="#ch7">⑦制度变迁</a>
+  <a href="#exam-strategy">应试策略</a>
+  <a href="#quick-ref">速记清单</a>
+</nav>
+
+<!-- 主内容 -->
+<div class="main-content">
+
+<div style="text-align:center;margin:20px 0 8px;">
+  <span style="display:inline-flex;align-items:center;gap:8px;padding:6px 18px;background:linear-gradient(135deg,#1a1a2e,#2d2b55);border-radius:20px;font-size:12px;color:#e0d6ff;letter-spacing:1px;font-weight:500;">
+    <span style="opacity:0.7;">Built by</span>
+    <span style="font-weight:700;color:#a78bfa;">Hermes</span>
+    <span style="opacity:0.5;">×</span>
+    <span style="font-weight:700;color:#fbbf24;">高兴</span>
+  </span>
+</div>
+
+<div style="text-align:center;margin:10px 0 25px;padding:24px 30px;background:linear-gradient(135deg,#fff 0%,#f8f6ff 100%);border:1.5px solid #e8e4f0;border-radius:16px;box-shadow:0 2px 12px rgba(0,0,0,0.04);">
+  <p style="font-size:13px;color:var(--ink-light);letter-spacing:3px;margin-bottom:4px;">四川农业大学 · 经济学院</p>
+  <h1 class="page-title" style="margin:8px 0 6px;">新制度经济学 · 期末复习手册</h1>
+  <p style="font-size:14px;color:var(--ink-mid);margin-bottom:10px;">2025-2026 学年第 2 学期</p>
+  <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:12px;">
+    <span style="padding:4px 12px;background:#f0f6ff;border-radius:12px;font-size:12px;color:var(--accent-blue);">📚 7章全考点覆盖</span>
+    <span style="padding:4px 12px;background:#f0fdf4;border-radius:12px;font-size:12px;color:var(--accent-green);">🎯 31道自测题</span>
+    <span style="padding:4px 12px;background:#faf5ff;border-radius:12px;font-size:12px;color:var(--accent-purple);">⚠️ 12个判断陷阱</span>
+    <span style="padding:4px 12px;background:#fffbeb;border-radius:12px;font-size:12px;color:#b45309;">📝 论述题标答范文</span>
+  </div>
+  <p style="font-size:12px;color:var(--ink-light);margin-top:14px;line-height:1.6;">复习范围严格对照老师划定考点 · 知识点+自测题+答题模板一站式搞定<br>点击紫色「🎯 自测练习」可折叠练题，绿色「💡 查看答案」揭晓解析</p>
+</div>
+
+<!-- ==================== 考试概览 ==================== -->
+<div id="exam-overview" class="chapter-header" style="background: linear-gradient(135deg, #4a3728 0%, #2c1810 100%);">
+  <h2>📋 考试概览</h2>
+  <p class="ch-desc">线上抽题 · 题库量大年年更新 · 两套试卷0重复 · 所有考点均在划定范围内</p>
+</div>
+
+<div class="exam-info-grid">
+  <div class="exam-info-item"><div class="num">100</div><div class="label">总分</div></div>
+  <div class="exam-info-item"><div class="num">50:50</div><div class="label">客观:主观</div></div>
+  <div class="exam-info-item"><div class="num">7</div><div class="label">章节考点</div></div>
+  <div class="exam-info-item"><div class="num">6</div><div class="label">题型种类</div></div>
+</div>
+
+<div class="card card-kraft">
+  <table class="compare-table">
+    <tr><th>题型</th><th>题数×分值</th><th>总分</th><th>答题要点</th></tr>
+    <tr><td>单选题</td><td>10×1′</td><td>10′</td><td>概念辨析、定义归属</td></tr>
+    <tr><td>多选题</td><td>10×2′</td><td>20′</td><td>多维分类、多因素题，漏选少选均扣分</td></tr>
+    <tr><td>判断题</td><td>10×1′</td><td>10′</td><td>注意绝对化表述（"一定""只能""所有"）</td></tr>
+    <tr><td>名词解释</td><td>5×2′</td><td>10′</td><td>一句话精准定义，最多两句，预留2行</td></tr>
+    <tr><td>论述题</td><td>3×10′</td><td>30′</td><td>小论文形式：定义→观点→理解→案例</td></tr>
+    <tr><td>综合分析题</td><td>2×10′</td><td>20′</td><td>图文+填空，有长有短，兼顾客观与主观</td></tr>
+  </table>
+</div>
+
+<div class="trap-box">
+  <strong>多选题是最大失分区！</strong>20分总分占比最高的客观题，且漏选扣分。复习时务必关注"分类""构成""影响因素"等天然多选题型的知识点。
+</div>
+
+<!-- ==================== 第一章 ==================== -->
+<div id="ch1" class="chapter-header">
+  <h2>第一章 · 人的行为与理性假定</h2>
+  <p class="ch-desc">新制度经济学的起点：人不是完美理性的计算机</p>
+</div>
+
+<p style="margin:15px 0; color:var(--ink-mid);">传统经济学假设人是"完全理性"的，能获取所有信息并做最优决策。新制度经济学认为这不现实——人的理性是<strong>有限的</strong>。这个假定是整个学科的基石，因为正是有限理性才催生了交易费用、契约、制度等一切后续概念。</p>
+
+<h3 class="section-title">1.1 理性的分类</h3>
+
+<div class="two-col">
+  <div class="card card-blue">
+    <h4 style="color:var(--accent-blue);margin-bottom:8px;">价值理性</h4>
+    <p>关注<strong>目标本身的合理性</strong>——"我追求的东西值不值得追求？"</p>
+    <p style="font-size:13px;color:var(--ink-light);margin-top:6px;">例：追求健康（合理目标）vs 追求毒品快感（不合理目标）</p>
+  </div>
+  <div class="card card-green">
+    <h4 style="color:var(--accent-green);margin-bottom:8px;">目标-手段理性（过程理性）</h4>
+    <p>关注<strong>达成目标的手段是否合理</strong>——"我用的方法对不对？"</p>
+    <p style="font-size:13px;color:var(--ink-light);margin-top:6px;">例：为赚钱选择勤劳工作（合理手段）vs 选择诈骗（不合理手段）</p>
+  </div>
+</div>
+
+<details class="self-test">
+  <summary>自测练习 · 理性分类（单选/判断/名词解释）</summary>
+  <div class="test-content">
+    <div class="test-q">
+      <div class="q-stem">【判断题】目标-手段理性关注的是追求目标的合理性。（  ）</div>
+      <details class="test-reveal"><summary>查看答案</summary><div class="reveal-ans">✗ 错误。目标-手段理性关注的是<b>手段</b>（达成目标的过程）是否合理，而非目标本身。关注目标合理性的是"价值理性"。</div></details>
+    </div>
+    <div class="test-q">
+      <div class="q-stem">【单选题】"追求的目标是否值得追求"属于哪种理性？</div>
+      <div class="q-opts">A. 完全理性&emsp;B. 价值理性&emsp;C. 过程理性&emsp;D. 有限理性</div>
+      <details class="test-reveal"><summary>查看答案</summary><div class="reveal-ans">B. 价值理性。价值理性关注目标本身的合理性。C选项"过程理性"是目标-手段理性的别称。</div></details>
+    </div>
+    <div class="test-q">
+      <div class="q-stem">【名词解释】过程理性</div>
+      <details class="test-reveal"><summary>查看答案</summary><div class="reveal-ans">过程理性（目标-手段理性）：关注达成既定目标所采取的手段和过程是否合理，即"用对的方法做事"。</div></details>
+    </div>
+  </div>
+</details>
+
+<h3 class="section-title">1.2 有限理性</h3>
+
+<div class="card card-kraft">
+  <p class="handwrite" style="margin-bottom:10px;">核心思想：人想理性，但做不到完全理性。</p>
+  <p><strong>代表学者：</strong></p>
+  <ul class="point-list">
+    <li><strong>西蒙（Simon）：</strong>人的理性受<span class="kw">认知能力</span>和<span class="kw">信息获取能力</span>的限制，只能达到"<span class="kw-red">满意</span>"而非"最优"</li>
+    <li><strong>阿罗（Arrow）：</strong><span class="kw">信息不完全</span>和<span class="kw">信息处理能力有限</span>导致理性有界</li>
+  </ul>
+</div>
+
+<h4 class="subsection-title">有限理性的产生原因</h4>
+
+<div class="two-col">
+  <div class="card card-orange">
+    <h4 style="color:var(--accent-orange);">外在约束</h4>
+    <ul class="point-list">
+      <li>环境复杂、信息量巨大</li>
+      <li>存在不确定性（未来不可完全预见）</li>
+    </ul>
+  </div>
+  <div class="card card-purple">
+    <h4 style="color:var(--accent-purple);">内在约束</h4>
+    <ul class="point-list">
+      <li>人类大脑信息处理能力有限</li>
+      <li>人们主动选择不完全理性（选择性有限理性）</li>
+    </ul>
+  </div>
+</div>
+
+<h4 class="subsection-title">有限理性的两种表现形式</h4>
+
+<div class="card">
+  <p><strong>① 交易成本表现：</strong>选择行为本身存在成本（搜集信息、比较方案等），当成本过高时，人们会<span class="key-point">放弃主动选择</span>，接受"差不多"的结果。</p>
+  <p style="margin-top:10px;"><strong>② X效率表现：</strong>即使没有外在约束，人们的主观偏好本身也不完全理性——人们会<span class="key-point">主动选择不充分理性的状态</span>（如偷懒、惯性思维）。</p>
+</div>
+
+<div class="trap-box">
+  <ul style="list-style:none;padding:0;">
+    <li>• "X效率"不是指企业内部效率低下（那是X-低效率），而是描述<strong>人主动选择不完全理性</strong>的状态</li>
+    <li>• 有限理性≠非理性，人依然<strong>追求理性</strong>，只是受到约束</li>
+    <li>• "选择性的有限理性"强调有限理性中有一部分是<strong>主动选择</strong>的（内在约束），而非仅仅被动受限</li>
+  </ul>
+</div>
+
+<h3 class="section-title">1.3 选择性的有限理性</h3>
+
+<div class="card card-green">
+  <span class="tag tag-define">名词解释</span><span class="tag tag-judge">判断</span>
+  <p style="margin-top:8px;"><strong>定义：</strong>人们因为信息搜集和处理的成本过高，<span class="key-point">主动选择</span>不去追求完全理性，自愿停留在"足够好"的决策水平。这不是被迫的，而是一种理性的选择——"不完美地理性"本身就是理性的。</p>
+  <p style="margin-top:8px;font-size:13px;color:var(--ink-light);">区分：被动有限理性（环境太复杂，想理性做不到）vs 选择性有限理性（能更理性，但选择不去追求，因为追求的成本>收益）</p>
+</div>
+
+<h3 class="section-title">1.4 X效率与有限理性</h3>
+
+<div class="card">
+  <span class="tag tag-define">名词解释</span><span class="tag tag-choice">单选</span>
+  <p style="margin-top:8px;"><strong>X效率（Leibenstein）：</strong>在非竞争压力下，个体和组织不追求成本最小化或产出最大化的状态。本质是<span class="key-point">主观偏好导致的理性不足</span>。</p>
+  <p style="margin-top:8px;">与有限理性的关系：X效率是有限理性在微观层面的体现——人们<strong>有能力</strong>更有效率，但<strong>选择不去</strong>（因为惰性、缺乏竞争压力等）。</p>
+</div>
+
+<h3 class="section-title">1.5 经济学 vs 认知科学：行为目标差异</h3>
+
+<div class="card card-kraft">
+  <table class="compare-table">
+    <tr><th>维度</th><th>经济学</th><th>认知科学</th></tr>
+    <tr><td>行为目标</td><td>财富/效用最大化</td><td>幸福感/满足感最大化</td></tr>
+    <tr><td>选择倾向</td><td>最优选择（optimization）</td><td>满意选择（satisficing）</td></tr>
+    <tr><td>人的形象</td><td>精于计算的理性人</td><td>有情感、受认知偏差影响的真实人</td></tr>
+  </table>
+  <details class="self-test" style="margin-top:12px;">
+  <summary>自测练习 · 经济学vs认知科学（单选/判断）</summary>
+  <div class="test-content">
+    <div class="test-q">
+      <div class="q-stem">【判断题】认知科学认为人总是追求最优选择。（  ）</div>
+      <details class="test-reveal"><summary>查看答案</summary><div class="reveal-ans">✗ 错误。认知科学认为人可以接受<b>次优选择</b>（satisficing），追求最优选择的是经济学的假设。</div></details>
+    </div>
+    <div class="test-q">
+      <div class="q-stem">【单选题】下列关于经济学与认知科学对人的假定，正确的是：</div>
+      <div class="q-opts">A. 经济学认为人追求幸福感最大化<br>B. 认知科学认为人是最优选择追求者<br>C. 经济学认为人追求财富/效用最大化<br>D. 两者对人的假定完全一致</div>
+      <details class="test-reveal"><summary>查看答案</summary><div class="reveal-ans">C。经济学假设人追求财富/效用最大化；A是认知科学的观点；B是经济学的观点。</div></details>
+    </div>
+  </div>
+</details>
+</div>
+
+<!-- ==================== 第二章 ==================== -->
+<div id="ch2" class="chapter-header" style="background: linear-gradient(135deg, var(--accent-green) 0%, #145a34 100%);">
+  <h2>第二章 · 交易与交易费用</h2>
+  <p class="ch-desc">新制度经济学的基石概念——一切制度安排都是为了降低交易费用</p>
+</div>
+
+<p style="margin:15px 0;color:var(--ink-mid);">如果说"有限理性"是新制度经济学的人性基础，那"交易费用"就是它的经济基础。科斯1937年的发现——交易本身是有成本的——彻底改变了经济学对市场和制度的理解。</p>
+
+<h3 class="section-title">2.1 交易的定义</h3>
+
+<div class="two-col">
+  <div class="card card-blue">
+    <h4 style="color:var(--accent-blue);">康芒斯（Commons）</h4>
+    <p>交易 = <strong>所有权的转移</strong></p>
+    <p style="font-size:13px;color:var(--ink-light);margin-top:5px;">较窄的定义，聚焦于法律意义上的权利交换</p>
+  </div>
+  <div class="card card-green">
+    <h4 style="color:var(--accent-green);">威廉姆森（Williamson）</h4>
+    <p>交易 = <strong>技术边界（可分离界面）的转移</strong></p>
+    <p style="font-size:13px;color:var(--ink-light);margin-top:5px;">更广的定义：人际往来、政企关系、企业内部的活动传递均视作交易</p>
+  </div>
+</div>
+
+<div class="trap-box">
+  威廉姆森的定义<strong>拓展了交易范畴</strong>，不仅限于买卖行为。
+</div>
+<details class="self-test">
+  <summary>自测练习 · 交易的定义（判断/单选）</summary>
+  <div class="test-content">
+    <div class="test-q">
+      <div class="q-stem">【判断题】只有涉及所有权转移才算交易。（  ）</div>
+      <details class="test-reveal"><summary>查看答案</summary><div class="reveal-ans">✗ 错误。按威廉姆森的定义，交易是"技术边界的转移"，人际往来、政企关系、企业内部活动传递均视作交易，不仅限于所有权转移。</div></details>
+    </div>
+    <div class="test-q">
+      <div class="q-stem">【单选题】将交易定义为"所有权转移"的学者是：</div>
+      <div class="q-opts">A. 科斯&emsp;B. 威廉姆森&emsp;C. 康芒斯&emsp;D. 诺思</div>
+      <details class="test-reveal"><summary>查看答案</summary><div class="reveal-ans">C. 康芒斯。威廉姆森将交易拓展为"技术边界的转移"。</div></details>
+    </div>
+  </div>
+</details>
+
+<h3 class="section-title">2.2 交易的三大类型</h3>
+
+<div class="card">
+  <span class="tag tag-multi">多选</span><span class="tag tag-choice">单选</span>
+  <table class="compare-table">
+    <tr><th>类型</th><th>含义</th><th>举例</th></tr>
+    <tr><td><strong>市场型交易</strong>（买卖交易）</td><td>法律地位平等的当事人之间通过自愿协商达成所有权转移</td><td>买菜、购物、签合同</td></tr>
+    <tr><td><strong>管理型交易</strong></td><td>上下级之间通过命令-服从关系完成的交易</td><td>老板分配任务给员工</td></tr>
+    <tr><td><strong>政治型交易</strong>（限额交易）</td><td>集体通过政治程序对资源进行权威性分配</td><td>政府征税、配额制度、财政拨款</td></tr>
+  </table>
+</div>
+
+<h3 class="section-title">2.3 交易费用的性质</h3>
+
+<div class="card card-orange">
+  <span class="tag tag-judge">判断</span><span class="tag tag-essay">论述</span>
+  <p><strong>双重作用：</strong></p>
+  <ul class="point-list">
+    <li><strong>限制交易：</strong>交易费用过高会阻止交易发生（如跨国贸易壁垒）</li>
+    <li><strong>鼓励交易：</strong>制度安排可降低交易费用从而促进交易（如产权明晰、合同法）</li>
+  </ul>
+  <p style="margin-top:10px;"><strong>本质属性：</strong>交易费用是<span class="key-point"><span class="kw-red">社会资源的真实损耗</span></span>，与生产成本性质一致，都是经济活动的成本。</p>
+</div>
+
+<div class="trap-box">
+  "交易费用只会阻碍交易" ← 判断题陷阱。正确理解：交易费用具有双重作用，制度可以通过降低交易费用来促进交易。
+</div>
+
+<h3 class="section-title">2.4 交易费用测量的四大难点</h3>
+
+<div class="card">
+  <span class="tag tag-multi">多选</span><span class="tag tag-essay">论述</span>
+  <ol style="padding-left:20px;">
+    <li style="margin:8px 0;"><strong>概念界定不统一：</strong>学者对"什么算交易费用"的定义不同，测量标准各异</li>
+    <li style="margin:8px 0;"><strong>交易费用与生产费用交织：</strong>很多活动既有生产性质又有交易性质，难以明确拆分（如质检既是生产环节也是防止欺诈的交易手段）</li>
+    <li style="margin:8px 0;"><strong>潜在交易费用无法测算：</strong>因费用过高而<strong>未发生</strong>的交易，其"本应存在的交易费用"无法观察和测量</li>
+    <li style="margin:8px 0;"><strong>一价定律不现实：</strong>同等交易在不同主体间、不同时间点的费用存在差异，无法统一计算</li>
+  </ol>
+</div>
+
+<h3 class="section-title">2.5 诺思（North）& 沃利斯（Wallis）的宏观测量方法</h3>
+
+<div class="card card-blue">
+  <span class="tag tag-essay">论述</span><span class="tag tag-choice">单选</span>
+  <h4 style="color:var(--accent-blue);margin-bottom:10px;">核心思路：将国民经济按功能分类</h4>
+  
+  <p><strong>资源分为两类：</strong></p>
+  <ul class="point-list">
+    <li><strong>生产转换资源：</strong>直接参与物质生产和转换</li>
+    <li><strong>交易服务资源：</strong>服务于交易过程（搜寻、谈判、监督、执行）</li>
+  </ul>
+  
+  <p style="margin-top:12px;"><strong>国民经济部门划分：</strong></p>
+  <table class="compare-table">
+    <tr><th>部门</th><th>归类</th><th>举例</th></tr>
+    <tr><td>私人交易部门</td><td>交易费用</td><td>金融、保险、批发零售、法律服务</td></tr>
+    <tr><td>私人非交易部门</td><td>生产费用</td><td>农业、制造业、采矿业</td></tr>
+    <tr><td>公共部门</td><td>整体视作交易费用</td><td>政府机构、军队、法院</td></tr>
+  </table>
+</div>
+
+<h3 class="section-title">2.6 交易费用与经济发展的关系</h3>
+
+<div class="card card-green">
+  <span class="tag tag-judge">判断</span><span class="tag tag-essay">论述</span>
+  <div class="formula">经济发展水平 ↑ → 总量交易费用 ↑ ，但 单笔交易费用 ↓</div>
+  <p><strong>原因：</strong>交易存在<span class="key-point">规模经济</span>——制度完善和技术进步使得交易的固定成本被分摊到更多交易中，单笔成本下降，但交易总量大幅增加，总费用仍在上升。</p>
+</div>
+
+<details class="self-test">
+  <summary>自测练习 · 交易费用与经济发展（判断）</summary>
+  <div class="test-content">
+    <div class="test-q">
+      <div class="q-stem">【判断题】经济发展水平越高，交易费用越低。（  ）</div>
+      <details class="test-reveal"><summary>查看答案</summary><div class="reveal-ans">✗ 错误。经济发展水平越高，<b>单笔</b>交易费用下降（规模经济），但<b>总量</b>交易费用上升（交易次数大幅增加）。</div></details>
+    </div>
+    <div class="test-q">
+      <div class="q-stem">【判断题】交易费用的下降依托制度与技术的进步来实现。（  ）</div>
+      <details class="test-reveal"><summary>查看答案</summary><div class="reveal-ans">✓ 正确。交易存在规模经济，依托制度完善和技术进步使单笔交易费用下降。</div></details>
+    </div>
+  </div>
+</details>
+
+<h3 class="section-title">2.7 斯密定理及其延伸</h3>
+
+<div class="card">
+  <span class="tag tag-define">名词解释</span><span class="tag tag-essay">论述</span>
+  <p><strong>斯密定理：</strong><span class="kw">分工</span>受<span class="kw">市场范围</span>的限制。</p>
+  <p style="margin-top:8px;"><strong>新制度经济学延伸：</strong></p>
+  <div class="flow-steps">
+    <span class="flow-step">分工深化</span>
+    <span class="flow-arrow">→</span>
+    <span class="flow-step">交易次数↑</span>
+    <span class="flow-arrow">→</span>
+    <span class="flow-step">交易费用↑</span>
+    <span class="flow-arrow">→</span>
+    <span class="flow-step">抵消分工收益</span>
+  </div>
+  <p style="margin-top:10px;">结论：<span class="key-point">市场范围的扩张受交易费用制约</span>，分工的收益最终会被增加的交易费用所抵消，因此需要制度创新来降低交易费用。</p>
+</div>
+
+<h3 class="section-title">2.8 交易费用的影响因素</h3>
+
+<h4 class="subsection-title">① 4P定理（人格化→非人格化）</h4>
+<div class="card card-purple">
+  <span class="tag tag-define">名词解释</span><span class="tag tag-judge">判断</span>
+  <p>交易发展过程中，<span class="key-point">人格化特征弱化，非人格化特征增强</span>。</p>
+  <p style="margin-top:8px;">早期交易依赖熟人关系、面对面信任（人格化交易）；随着市场扩大，交易越来越依靠制度、法律、标准合同（非人格化交易）。非人格化交易需要更完善的制度支撑。</p>
+</div>
+
+<h4 class="subsection-title">② 机会主义</h4>
+<div class="card">
+  <span class="tag tag-define">名词解释</span><span class="tag tag-multi">多选</span>
+  <p><strong>定义：</strong><span class="kw-red">无底线地追逐自身利益</span>，是<span class="key-point">极致的利己主义</span>。包括欺骗、隐瞒信息、违约等行为。</p>
+  <p style="margin-top:8px;">机会主义是交易费用产生的人性根源之一——如果人人诚实守信，就不需要监督、验货、打官司了。</p>
+</div>
+
+<h4 class="subsection-title">③ 资产专用性</h4>
+<div class="card card-orange">
+  <span class="tag tag-define">名词解释</span><span class="tag tag-essay">论述</span><span class="tag tag-multi">多选</span>
+  <p><strong>定义：</strong>资产被<span class="kw">锁定在特定用途</span>的程度。资产专用性越高，转作他用的价值损失越大。</p>
+  <p style="margin-top:8px;"><strong>与交易费用的关系：</strong>资产专用性越高→交易双方"被绑定"→机会主义风险↑→需要更复杂的治理机制→交易费用↑</p>
+  <p style="font-size:13px;color:var(--ink-light);margin-top:6px;">例：为某厂商定制的模具（只能给他用）vs 通用机床（给谁都能用）</p>
+</div>
+
+<h4 class="subsection-title">④ 潜在交易对手</h4>
+<div class="card">
+  <span class="tag tag-judge">判断</span><span class="tag tag-choice">单选</span>
+  <p>潜在交易对手越<strong>多</strong>→市场竞争越充分→价格越透明→交易费用反而越<strong>低</strong>。</p>
+  <p style="margin-top:8px;">反之，交易对手稀少（如垄断供应商）→议价空间小→容易被"敲竹杠"→交易费用高。</p>
+</div>
+
+<details class="self-test">
+  <summary>自测练习 · 交易费用影响因素（判断/多选）</summary>
+  <div class="test-content">
+    <div class="test-q">
+      <div class="q-stem">【判断题】潜在交易对手越多，交易费用越高。（  ）</div>
+      <details class="test-reveal"><summary>查看答案</summary><div class="reveal-ans">✗ 错误。恰恰相反！对手越多→竞争越充分→价格越透明→交易费用越<b>低</b>。</div></details>
+    </div>
+    <div class="test-q">
+      <div class="q-stem">【多选题】影响交易费用的因素包括：</div>
+      <div class="q-opts">A. 机会主义&emsp;B. 资产专用性<br>C. 潜在交易对手数量&emsp;D. 产品质量</div>
+      <details class="test-reveal"><summary>查看答案</summary><div class="reveal-ans">ABC。机会主义、资产专用性、潜在交易对手是课本明确列出的三大影响因素（加上4P定理）。D不属于交易费用影响因素。</div></details>
+    </div>
+  </div>
+</details>
+
+<!-- 第二章思维导图 -->
+<h4 class="subsection-title">📊 第二章知识导图</h4>
+<div class="card card-kraft">
+  <div class="mindmap">
+    <div class="root">
+      <div class="center-node">交易费用</div>
+      <div class="branches">
+        <div class="branch"><div class="branch-node">定义</div><div class="sub-branches"><div class="sub-node">康芒斯：所有权转移</div><div class="sub-node">威廉姆森：技术边界转移</div></div></div>
+        <div class="branch"><div class="branch-node">三大类型</div><div class="sub-branches"><div class="sub-node">市场型</div><div class="sub-node">管理型</div><div class="sub-node">政治型（限额）</div></div></div>
+        <div class="branch"><div class="branch-node highlight">性质</div><div class="sub-branches"><div class="sub-node">双重作用（限制+鼓励）</div><div class="sub-node">本质=社会资源损耗</div></div></div>
+        <div class="branch"><div class="branch-node">测量难点×4</div><div class="sub-branches"><div class="sub-node">概念不统一/与生产费用交织</div><div class="sub-node">潜在交易/一价定律失效</div></div></div>
+        <div class="branch"><div class="branch-node">影响因素</div><div class="sub-branches"><div class="sub-node">4P定理/机会主义</div><div class="sub-node">资产专用性/潜在交易对手</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 第三章 ==================== -->
+<div id="ch3" class="chapter-header" style="background: linear-gradient(135deg, var(--accent-red) 0%, #7b1a1a 100%);">
+  <h2>第三章 · 科斯定理</h2>
+  <p class="ch-desc">核心中的核心——外部性问题的全新解答</p>
+</div>
+
+<h3 class="section-title">3.1 外部性</h3>
+
+<div class="card">
+  <span class="tag tag-define">名词解释</span><span class="tag tag-essay">论述</span><span class="tag tag-analysis">综合分析</span>
+  <p><strong>定义：</strong>经济主体的行为对他人产生了<span class="key-point"><span class="kw-red">未通过市场价格体现</span></span>的影响（成本或收益）。</p>
+  
+  <p style="margin-top:12px;"><strong>核心影响：</strong>外部性扭曲市场机制，使资源配置偏离帕累托最优。</p>
+  
+  <table class="compare-table" style="margin-top:12px;">
+    <tr><th>类型</th><th>含义</th><th>后果</th><th>举例</th></tr>
+    <tr><td><strong>负外部性</strong></td><td>给他人带来未补偿的损害</td><td>厂商产量 > 社会最优产量（生产过多）</td><td>工厂污染</td></tr>
+    <tr><td><strong>正外部性</strong></td><td>给他人带来未收取的好处</td><td>厂商产量 < 社会最优产量（生产不足）</td><td>打疫苗、教育</td></tr>
+  </table>
+</div>
+
+<div class="trap-box">
+  注意：<strong>正外部性也造成效率损失</strong>！不是只有负外部性才有问题。正外部性导致生产不足（因为生产者无法从外溢的好处中获利，缺乏激励）。
+</div>
+
+<h3 class="section-title">3.2 庇古方案及其批判</h3>
+
+<div class="card card-blue">
+  <h4 style="color:var(--accent-blue);margin-bottom:8px;">传统福利经济学方案（庇古）</h4>
+  <ul class="point-list">
+    <li><strong>负外部性 → 庇古税：</strong>对产生负外部性的主体征税，使其私人成本=社会成本</li>
+    <li><strong>正外部性 → 庇古补贴：</strong>对产生正外部性的主体补贴，使其私人收益=社会收益</li>
+    <li><strong>目标：</strong>实现外部性内部化</li>
+  </ul>
+</div>
+
+<div class="card card-red">
+  <h4 style="color:var(--accent-red);margin-bottom:8px;">新制度经济学对庇古方案的三大批判</h4>
+  <span class="tag tag-essay">论述</span><span class="tag tag-multi">多选</span>
+  <ol style="padding-left:20px;">
+    <li style="margin:8px 0;"><strong>政府并非完全理性：</strong>政府不一定以社会福利最大化为目标，可能受利益集团影响</li>
+    <li style="margin:8px 0;"><strong>外部性复杂性：</strong>外部性问题错综复杂，政府的信息获取和处理能力有限</li>
+    <li style="margin:8px 0;"><strong>政府干预本身有成本：</strong>行政成本、执法成本，且干预易催生<strong>寻租行为</strong></li>
+  </ol>
+</div>
+
+<h3 class="section-title">3.3 垄断的社会成本与寻租</h3>
+
+<div class="card">
+  <span class="tag tag-essay">论述</span><span class="tag tag-multi">多选</span>
+  
+  <h4 style="margin-bottom:8px;">寻租的定义</h4>
+  <p>经济主体<span class="key-point">耗费资源去谋取垄断利润/超额利润</span>的活动，本质是纯粹的社会资源浪费（不创造任何价值）。</p>
+  
+  <h4 style="margin:15px 0 8px;">垄断社会成本的两部分</h4>
+  <div class="two-col">
+    <div class="card card-orange" style="margin:0;">
+      <p><strong>哈伯格三角</strong></p>
+      <p style="font-size:13px;">传统观点认为垄断损失仅为供求图中的效率损失三角形（较小）</p>
+    </div>
+    <div class="card card-red" style="margin:0;">
+      <p><strong>塔洛克方块</strong>（超额利润）</p>
+      <p style="font-size:13px;">寻租视角：垄断者的超额利润也是社会成本（因为获取它耗费了真实资源）</p>
+    </div>
+  </div>
+  <p style="margin-top:12px;"><strong>寻租的放大效应：</strong>多个主体竞相寻租时，每个人都投入资源争夺同一个垄断地位，总投入甚至可能超过垄断利润本身→社会损失进一步扩大。寻租投入属于<strong>沉没成本</strong>。</p>
+</div>
+
+<h3 class="section-title">3.4 科斯三大定理 ⭐</h3>
+
+<div class="card card-green" style="border:2px solid var(--accent-green);">
+  <span class="tag tag-define">名词解释</span><span class="tag tag-essay">论述</span><span class="tag tag-analysis">综合分析</span>
+  <p style="font-family:var(--hand-font);font-size:20px;color:var(--accent-green);margin-bottom:12px;">这是全书最核心考点，论述题必考！</p>
+  
+  <h4 style="background:var(--accent-green);color:#fff;padding:8px 12px;border-radius:6px;margin-bottom:12px;">科斯第一定理（交易费用 = 0）</h4>
+  <p><strong>内容：</strong>在交易费用为零的条件下，无论产权如何初始配置，通过<span class="kw">自愿市场交易</span>，资源配置最终都能达到<strong>帕累托最优</strong>。</p>
+  <p style="margin-top:6px;"><strong>两个命题：</strong></p>
+  <ul class="point-list">
+    <li><strong>无关性命题：</strong>产权的初始分配不影响最终结果</li>
+    <li><strong>有效性命题：</strong>市场交易总能实现效率最优</li>
+  </ul>
+  <p style="font-size:13px;color:var(--ink-light);margin-top:6px;">直觉理解：如果谈判完全免费，谁先拿到权利不重要，因为最终会流转到最能创造价值的人手中。</p>
+  
+  <h4 style="background:var(--accent-blue);color:#fff;padding:8px 12px;border-radius:6px;margin:20px 0 12px;">科斯第二定理（交易费用 > 0）</h4>
+  <p><strong>内容：</strong>在交易费用为正的现实世界中，产权的<span class="key-point"><span class="kw-red">初始界定具有经济价值</span></span>——不同的产权安排会导致不同的资源配置结果。</p>
+  <p style="margin-top:6px;">意义：产权制度设计本身是重要的，因为现实中交易费用不为零，权利无法通过无成本谈判自动流向最优配置。</p>
+  
+  <h4 style="background:var(--accent-orange);color:#fff;padding:8px 12px;border-radius:6px;margin:20px 0 12px;">科斯第三定理（多元化解决方案）</h4>
+  <p><strong>内容：</strong>产权界定本身存在成本，需要<span class="key-point">综合比较成本收益</span>来选择最优的外部性解决方案。</p>
+  <p style="margin-top:6px;"><strong>可选方案：</strong>市场自发交易、政府界定产权、税收补贴、企业合并（内部化）等——没有唯一最优，要看具体情境下哪种方式的净收益最大。</p>
+</div>
+
+<div class="trap-box">
+  <ul style="list-style:none;padding:0;">
+    <li>• 科斯第一定理的前提是"交易费用=0"，这是一个<strong>理想化假设</strong>，现实中不存在</li>
+    <li>• 科斯定理不是说"政府不该管"，而是说解决外部性有多种方式，要比较成本收益</li>
+  </ul>
+</div>
+<details class="self-test">
+  <summary>自测练习 · 科斯定理（判断/名词解释/论述）</summary>
+  <div class="test-content">
+    <div class="test-q">
+      <div class="q-stem">【判断题】科斯定理认为产权界定越清晰越好。（  ）</div>
+      <details class="test-reveal"><summary>查看答案</summary><div class="reveal-ans">✗ 错误。科斯第三定理指出产权界定本身有成本，应在<b>边际成本=边际收益</b>时停止，而非越清晰越好。</div></details>
+    </div>
+    <div class="test-q">
+      <div class="q-stem">【判断题】科斯第一定理说明在现实中市场可以自发解决所有外部性问题。（  ）</div>
+      <details class="test-reveal"><summary>查看答案</summary><div class="reveal-ans">✗ 错误。科斯第一定理的前提是"交易费用=0"，这在现实中不存在。正因为现实交易费用>0，才需要科斯第二、第三定理指导制度设计。</div></details>
+    </div>
+    <div class="test-q">
+      <div class="q-stem">【名词解释】科斯第二定理</div>
+      <details class="test-reveal"><summary>查看答案</summary><div class="reveal-ans">在交易费用为正的现实世界中，产权的初始界定具有经济价值——不同的产权安排会导致不同的资源配置结果，因此产权制度设计本身是重要的。</div></details>
+    </div>
+  </div>
+</details>
+
+<!-- ==================== 第四章 ==================== -->
+<div id="ch4" class="chapter-header" style="background: linear-gradient(135deg, var(--accent-orange) 0%, #8b5a00 100%);">
+  <h2>第四章 · 产权理论</h2>
+  <p class="ch-desc">谁拥有什么、怎么保护、如何影响效率</p>
+</div>
+
+<h3 class="section-title">4.1 产权的定义</h3>
+
+<div class="card">
+  <span class="tag tag-define">名词解释</span>
+  <p><strong>产权：</strong>基于物的使用所形成的<span class="key-point"><span class="kw">人与人之间的社会关系</span></span>（而非人与物的关系）。</p>
+  <p style="margin-top:6px;font-size:13px;color:var(--ink-light);">注意：产权的本质是社会关系，不是技术关系。"我拥有这块地"的真实含义是"别人不能随意使用我的地"——这是人与人之间的权利义务关系。</p>
+</div>
+
+<h3 class="section-title">4.2 财产（物品）分类</h3>
+
+<div class="card card-kraft">
+  <span class="tag tag-multi">多选</span><span class="tag tag-choice">单选</span><span class="tag tag-analysis">综合分析</span>
+  <table class="compare-table">
+    <tr><th></th><th>有竞争性</th><th>无竞争性</th></tr>
+    <tr><td><strong>有排他性</strong></td><td>私人物品（苹果、衣服）</td><td>准公共物品/俱乐部物品（有线电视、高速公路）</td></tr>
+    <tr><td><strong>无排他性</strong></td><td>公共资源/公共池塘资源（渔场、公共牧地）</td><td>纯公共物品（国防、灯塔）</td></tr>
+  </table>
+  <p style="margin-top:10px;font-size:13px;"><strong>竞争性：</strong>一个人消费是否减少他人可消费的量。<strong>排他性：</strong>能否阻止未付费者使用。</p>
+</div>
+
+<div class="trap-box">
+  "准公共物品"位置易混：有排他性+无竞争性=俱乐部物品；无排他性+有竞争性=公共资源。两个位置容易搞反！
+</div>
+
+<h3 class="section-title">4.3 产权的根本属性</h3>
+
+<div class="card card-red">
+  <span class="tag tag-judge">判断</span><span class="tag tag-choice">单选</span>
+  <p style="font-family:var(--hand-font);font-size:22px;text-align:center;color:var(--accent-red);">排他性</p>
+  <p style="text-align:center;">产权最根本、最本质的属性是<strong>排他性</strong>——能够排除他人对该财产的使用/享有。没有排他性，就谈不上产权。</p>
+</div>
+
+<h3 class="section-title">4.4 产权的功能</h3>
+
+<div class="card">
+  <span class="tag tag-multi">多选</span><span class="tag tag-essay">论述</span>
+  <div class="two-col">
+    <div>
+      <h4 style="color:var(--accent-blue);">宏观功能</h4>
+      <ul class="point-list">
+        <li>资源配置功能</li>
+        <li>收入分配功能</li>
+      </ul>
+    </div>
+    <div>
+      <h4 style="color:var(--accent-green);">微观功能</h4>
+      <ul class="point-list">
+        <li>激励与约束功能</li>
+        <li>外部性内部化功能</li>
+        <li>降低不确定性功能</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<h3 class="section-title">4.5 产权起源理论</h3>
+
+<h4 class="subsection-title">① 德姆塞茨经济模型（原始产权经典模型）</h4>
+<div class="card card-blue">
+  <span class="tag tag-essay">论述</span><span class="tag tag-multi">多选</span>
+  <p><strong>核心观点：</strong>当界定产权的收益 > 成本时，产权制度就会自发产生。</p>
+  <p style="margin-top:8px;"><strong>产权起源的四大动力：</strong></p>
+  <ol style="padding-left:20px;">
+    <li style="margin:6px 0;">经济价值变动（资源变得稀缺/值钱→值得界定产权）</li>
+    <li style="margin:6px 0;">技术革新（新技术使界定产权的成本下降）</li>
+    <li style="margin:6px 0;">新市场开拓（新的交易机会出现）</li>
+    <li style="margin:6px 0;">旧产权制度调整（原有制度不再适应新情况）</li>
+  </ol>
+</div>
+
+<h4 class="subsection-title">② 诺斯人口模型</h4>
+<div class="card card-green">
+  <span class="tag tag-choice">单选</span><span class="tag tag-essay">论述</span>
+  <div class="flow-steps">
+    <span class="flow-step">人口增长</span>
+    <span class="flow-arrow">→</span>
+    <span class="flow-step">狩猎采集难以为继</span>
+    <span class="flow-arrow">→</span>
+    <span class="flow-step">转向定居农业</span>
+    <span class="flow-arrow">→</span>
+    <span class="flow-step">土地变得稀缺</span>
+    <span class="flow-arrow">→</span>
+    <span class="flow-step">产权需求产生</span>
+  </div>
+</div>
+
+<h3 class="section-title">4.6 产权界定的相对性</h3>
+
+<div class="card card-orange">
+  <span class="tag tag-judge">判断</span><span class="tag tag-essay">论述</span>
+  <p><strong>核心观点：</strong>产权界定是<strong>不完全的、相对的</strong>，不存在绝对清晰的产权。</p>
+  <p style="margin-top:8px;"><strong>原因：</strong>完全清晰地界定产权的交易费用过高（信息成本、执行成本等）。</p>
+  <div class="formula">最优产权界定标准：界定的边际成本 = 边际收益</div>
+  <p>含义：不追求"完全清晰"，而是在成本收益平衡处停止。超过这个点再继续界定，付出的成本超过带来的好处。</p>
+</div>
+
+<h3 class="section-title">4.7 公共领域与寻租</h3>
+
+<div class="card">
+  <span class="tag tag-define">名词解释</span><span class="tag tag-essay">论述</span>
+  <p><strong>公共领域：</strong>产权界定模糊的地带，是产权不完全界定的必然结果，<span class="key-point">绝对存在</span>于任何社会。</p>
+  <p style="margin-top:10px;"><strong>关键推论：</strong>政府经济管制（如限价、限量、审批制度）→创造新的模糊产权地带→形成新的公共领域→诱发寻租行为。</p>
+  <p style="font-size:13px;color:var(--ink-light);margin-top:6px;">例：政府设置出租车牌照限制→牌照具有稀缺价值→形成"谁能拿到牌照"的公共领域→催生权力寻租。</p>
+</div>
+
+<h3 class="section-title">4.8 产权保护机制</h3>
+
+<div class="card card-kraft">
+  <span class="tag tag-multi">多选</span><span class="tag tag-essay">论述</span>
+  <table class="compare-table">
+    <tr><th>阶段</th><th>核心手段</th><th>辅助机制</th></tr>
+    <tr><td><strong>无国家阶段</strong></td><td>武力/武力威慑</td><td>复仇机制、横向忠诚（族群互助）、补偿机制</td></tr>
+    <tr><td><strong>有国家阶段</strong></td><td>国家暴力体系（国防、军队、警察、司法）</td><td>法律制度、行政保护</td></tr>
+  </table>
+  
+  <div style="margin-top:15px;padding:12px;background:#fff5f0;border-radius:6px;border:1px solid #f5c6c6;">
+    <strong style="color:var(--accent-red);">诺斯悖论（国家悖论）：</strong>
+    <p>没有国家→产权难以有效保护（弱肉强食）；有了国家→公权力本身可能侵害产权（征收、腐败）。国家既是产权的<span class="kw-green">保护者</span>，又是产权的<span class="kw-red">潜在侵害者</span>。</p>
+  </div>
+</div>
+
+<h3 class="section-title">4.9 公共物品的需求特征与供给</h3>
+
+<div class="card">
+  <span class="tag tag-multi">多选</span><span class="tag tag-judge">判断</span>
+  <h4>需求特征</h4>
+  <ul class="point-list">
+    <li><strong>非排他性：</strong>无法阻止未付费者享用→<strong>搭便车问题</strong></li>
+    <li><strong>非竞争性：</strong>增加一个消费者的边际成本为零</li>
+    <li><strong>偏好显示困难：</strong>人们不愿真实表达对公共物品的需求（因为可以免费搭便车）</li>
+    <li><strong>需求曲线纵向加总：</strong>（区别于私人物品的横向加总）</li>
+  </ul>
+  
+  <h4 style="margin-top:15px;">供给主体</h4>
+  <ul class="point-list">
+    <li><strong>传统观点：</strong>私人物品由私人供给，公共物品由政府供给</li>
+    <li><strong>新制度经济学观点：</strong>供给主体不局限于政府或私人，<span class="key-point">依据成本收益选择最优方案</span>（契合科斯第三定理精神）</li>
+  </ul>
+  <p style="font-size:13px;color:var(--ink-light);margin-top:8px;">例：私人供给的灯塔（历史上真实存在）、NGO提供的公共服务、PPP模式等。</p>
+</div>
+
+<details class="self-test">
+  <summary>自测练习 · 产权与公共物品（判断/多选）</summary>
+  <div class="test-content">
+    <div class="test-q">
+      <div class="q-stem">【判断题】公共物品只能由政府供给。（  ）</div>
+      <details class="test-reveal"><summary>查看答案</summary><div class="reveal-ans">✗ 错误。新制度经济学认为供给方式应取决于<b>成本收益比较</b>（科斯第三定理精神），私人、政府、NGO都可能是最优供给主体。</div></details>
+    </div>
+    <div class="test-q">
+      <div class="q-stem">【多选题】产权的微观功能包括：</div>
+      <div class="q-opts">A. 激励与约束&emsp;B. 资源配置<br>C. 外部性内部化&emsp;D. 降低不确定性</div>
+      <details class="test-reveal"><summary>查看答案</summary><div class="reveal-ans">ACD。B"资源配置"属于产权的<b>宏观</b>功能。微观功能三个：激励与约束、外部性内部化、降低不确定性。</div></details>
+    </div>
+    <div class="test-q">
+      <div class="q-stem">【单选题】产权最根本的属性是：</div>
+      <div class="q-opts">A. 收益性&emsp;B. 排他性&emsp;C. 可转让性&emsp;D. 可分割性</div>
+      <details class="test-reveal"><summary>查看答案</summary><div class="reveal-ans">B. 排他性。排他性是产权最本质的属性——没有排他性就谈不上产权。</div></details>
+    </div>
+  </div>
+</details>
+
+<!-- ==================== 第五章 ==================== -->
+<div id="ch5" class="chapter-header" style="background: linear-gradient(135deg, var(--accent-purple) 0%, #3d1553 100%);">
+  <h2>第五章 · 契约理论</h2>
+  <p class="ch-desc">人与人之间如何通过协议规范交易行为</p>
+</div>
+
+<h3 class="section-title">5.1 契约的内容划分</h3>
+
+<div class="card">
+  <span class="tag tag-multi">多选</span><span class="tag tag-choice">单选</span>
+  <h4>张五常的划分</h4>
+  <ul class="point-list">
+    <li><strong>收入条款：</strong>规定各方的收入分配方式（占主导地位）</li>
+    <li><strong>使用条款：</strong>规定资产如何使用</li>
+  </ul>
+  
+  <h4 style="margin-top:15px;">威廉姆森的划分</h4>
+  <ul class="point-list">
+    <li><strong>资产专用性</strong></li>
+    <li><strong>价格</strong></li>
+    <li><strong>保护机制</strong></li>
+  </ul>
+  
+  <div style="margin-top:15px;padding:12px;background:#f0f8ff;border-radius:6px;">
+    <strong>三者关系（重点）：</strong>
+    <ul class="point-list">
+      <li>资产专用性 = 0 时 → 价格最低（市场竞争充分）</li>
+      <li>资产专用性 > 0 时 → 增设保护机制的契约反而价格更低（因为保护机制降低了风险溢价）</li>
+    </ul>
+    <p style="margin-top:6px;font-size:13px;color:var(--ink-light);">结论：<span class="key-point">制度安排（保护机制）可以降低交易费用</span>。</p>
+  </div>
+</div>
+
+<h3 class="section-title">5.2 签约过程的三大影响因素</h3>
+
+<div class="card card-orange">
+  <span class="tag tag-multi">多选</span><span class="tag tag-judge">判断</span>
+  <p><strong>三大因素：</strong>资产专用性、有限理性、机会主义</p>
+  
+  <h4 style="margin-top:12px;">极端情形推演（帮助理解）：</h4>
+  <table class="compare-table">
+    <tr><th>假设条件</th><th>签约结果</th></tr>
+    <tr><td>完全理性（无有限理性）</td><td>所有可能情况都能预见→签约井然有序</td></tr>
+    <tr><td>机会主义突出（严重不诚信）</td><td>再完美的契约也难以履行</td></tr>
+    <tr><td>资产无专用性</td><td>交易者随时可更换对手→市场充分竞争→无需特殊治理</td></tr>
+  </table>
+  
+  <p style="margin-top:12px;"><strong>现实结论：</strong>三个因素同时存在→所有现实契约都需要专门的治理安排→<span class="key-point">整个社会就是各类交易与契约的治理体系</span>。</p>
+</div>
+
+<h3 class="section-title">5.3 契约选择理论</h3>
+
+<h4 class="subsection-title">① 张五常：土地契约选择</h4>
+<div class="card card-blue">
+  <span class="tag tag-essay">论述</span><span class="tag tag-multi">多选</span>
+  
+  <p><strong>传统观点（交易费用=0假设下）：</strong></p>
+  <div class="formula">效率排序：工资制 > 固定租金制 > 分成制</div>
+  <p style="font-size:13px;color:var(--ink-light);">传统观点认为分成制效率最低（因为劳动者只得到产出的一部分，激励不足）</p>
+  
+  <p style="margin-top:15px;"><strong>张五常新观点（考虑现实交易费用+自然风险）：</strong></p>
+  <ul class="point-list">
+    <li>工资制：地主承担全部风险，但监督成本高</li>
+    <li>固定租金制：佃农承担全部风险，但地主无需监督</li>
+    <li>分成制：风险共担，监督适中</li>
+  </ul>
+  <p style="margin-top:8px;"><strong>结论：</strong>三种契约各有优劣，现实中形成<span class="key-point">混合契约结构</span>，是市场竞争与成本收益选择的结果，不存在绝对优劣。</p>
+</div>
+
+<h4 class="subsection-title">② 威廉姆森：麦克尼尔契约三分法</h4>
+<div class="card card-green">
+  <span class="tag tag-essay">论述</span><span class="tag tag-multi">多选</span><span class="tag tag-analysis">综合分析</span>
+  
+  <table class="compare-table">
+    <tr><th>契约类型</th><th>适配交易</th><th>治理方式</th><th>特征</th></tr>
+    <tr><td><strong>古典契约</strong></td><td>资产专用性=0，标准化交易</td><td>市场治理</td><td>一锤子买卖，当事人身份无关紧要</td></tr>
+    <tr><td><strong>新古典契约</strong></td><td>资产专用性中等，交易频率低</td><td>三方治理（交易双方+第三方仲裁）</td><td>有纠纷找第三方裁决</td></tr>
+    <tr><td><strong>关系性契约</strong></td><td>高资产专用性/高频交易</td><td>双方治理或统一治理（纵向一体化）</td><td>长期合作关系，内部化解决</td></tr>
+  </table>
+</div>
+
+<details class="self-test">
+  <summary>自测练习 · 契约与治理（多选/判断）</summary>
+  <div class="test-content">
+    <div class="test-q">
+      <div class="q-stem">【多选题】关系性契约对应的治理方式包括：</div>
+      <div class="q-opts">A. 市场治理&emsp;B. 三方治理<br>C. 双方治理&emsp;D. 统一治理（纵向一体化）</div>
+      <details class="test-reveal"><summary>查看答案</summary><div class="reveal-ans">CD。关系性契约适配高资产专用性/高频交易，对应双方治理或统一治理。A对应古典契约，B对应新古典契约。</div></details>
+    </div>
+    <div class="test-q">
+      <div class="q-stem">【判断题】"新古典契约"是新古典经济学的产物。（  ）</div>
+      <details class="test-reveal"><summary>查看答案</summary><div class="reveal-ans">✗ 错误。"新古典契约"是威廉姆森在麦克尼尔契约三分法中的分类名称，与"新古典经济学"是完全不同的概念。</div></details>
+    </div>
+    <div class="test-q">
+      <div class="q-stem">【单选题】资产专用性为零时，最适合的治理方式是：</div>
+      <div class="q-opts">A. 统一治理&emsp;B. 三方治理&emsp;C. 双方治理&emsp;D. 市场治理</div>
+      <details class="test-reveal"><summary>查看答案</summary><div class="reveal-ans">D. 市场治理。资产专用性为零意味着交易标准化，交易者可随时更换对手，市场竞争本身即为最好的约束。</div></details>
+    </div>
+  </div>
+</details>
+
+<h3 class="section-title">5.4 代理成本</h3>
+
+<div class="card">
+  <span class="tag tag-define">名词解释</span><span class="tag tag-multi">多选</span>
+  <p><strong>代理成本由三部分构成：</strong></p>
+  <ol style="padding-left:20px;">
+    <li style="margin:8px 0;"><strong>委托人的监督支出：</strong>为了监控代理人行为而投入的资源（审计、考核等）</li>
+    <li style="margin:8px 0;"><strong>代理人的保证支出：</strong>代理人为证明自身诚实所投入的资源（提供担保、公开信息等）</li>
+    <li style="margin:8px 0;"><strong>剩余损失：</strong>即使有了监督和保证，代理人决策仍与委托人最优决策存在偏差导致的效率损失</li>
+  </ol>
+</div>
+
+<h3 class="section-title">5.5 敲竹杠与准租金</h3>
+
+<div class="card card-red">
+  <span class="tag tag-define">名词解释</span><span class="tag tag-essay">论述</span>
+  
+  <h4 style="color:var(--accent-red);">敲竹杠（套牢/邀赏/Hold-up）</h4>
+  <p><strong>定义：</strong>针对具有专用性的资产交易，交易一方在事后利用<strong><span class="kw-red">可剥削性准租金</span></strong>实施的机会主义行为。</p>
+  
+  <h4 style="margin-top:15px;">准租金</h4>
+  <p><strong>定义：</strong>资产在当前最佳用途中的价值 超出 其残值（次优用途价值）的部分。</p>
+  <div class="formula">可剥削性准租金 = 资产最佳用途价值 - 资产残值</div>
+  
+  <p style="margin-top:12px;"><strong>逻辑链：</strong></p>
+  <div class="flow-steps">
+    <span class="flow-step">资产专用性高</span>
+    <span class="flow-arrow">→</span>
+    <span class="flow-step">转用价值很低</span>
+    <span class="flow-arrow">→</span>
+    <span class="flow-step">准租金高</span>
+    <span class="flow-arrow">→</span>
+    <span class="flow-step">对方有"敲"的空间</span>
+    <span class="flow-arrow">→</span>
+    <span class="flow-step">敲竹杠发生</span>
+  </div>
+  
+  <p style="margin-top:12px;font-size:13px;color:var(--ink-light);">例：你花500万建了一条只能通往A工厂的专用铁路（残值50万），A工厂事后压价——你的准租金是450万，A就在这450万里"敲"你。</p>
+</div>
+
+<h3 class="section-title">5.6 契约实施机制的变迁</h3>
+
+<div class="card">
+  <span class="tag tag-essay">论述</span><span class="tag tag-multi">多选</span>
+  <div class="flow-steps">
+    <span class="flow-step">自我实施</span>
+    <span class="flow-arrow">→</span>
+    <span class="flow-step">私人第三方</span>
+    <span class="flow-arrow">→</span>
+    <span class="flow-step">政府第三方</span>
+  </div>
+  
+  <ul class="point-list" style="margin-top:12px;">
+    <li><strong>自我实施：</strong>受"履约资本"（声誉、关系）限制，适用范围小（仅熟人社会）</li>
+    <li><strong>第三方实施（私人→政府）：</strong>市场扩大后需要强制执行力量</li>
+    <li><strong>政府作为第三方的优势：</strong>①具备规模经济，单笔执行成本低；②拥有暴力潜能优势（最终执行力）</li>
+  </ul>
+</div>
+
+<h3 class="section-title">5.7 默认契约</h3>
+
+<div class="card card-purple">
+  <span class="tag tag-define">名词解释</span><span class="tag tag-judge">判断</span>
+  <p><strong>定义：</strong>行业内的潜规则/惯例，是<span class="key-point"><span class="kw">市场竞争的自然结果</span></span>。</p>
+  <p style="margin-top:8px;"><strong>性质：</strong>提前预估未来收益/损失并形成补偿机制。不是正式法律文件，但约束力来自行业共识和重复博弈。</p>
+  <p style="font-size:13px;color:var(--ink-light);margin-top:6px;">例：餐饮业的"试用期三天不满意可走人"、学术界的"同行评审"制度等。</p>
+</div>
+
+<!-- ==================== 第六章 ==================== -->
+<div id="ch6" class="chapter-header" style="background: linear-gradient(135deg, #2c3e50 0%, #1a252f 100%);">
+  <h2>第六章 · 企业理论</h2>
+  <p class="ch-desc">五大学派对"企业是什么"的不同回答</p>
+</div>
+
+<p style="margin:15px 0;color:var(--ink-mid);">这一章有五种企业理论，每种的核心观点不同。考试常考<strong>对比辨析</strong>——"某某学者认为企业的性质是什么？""企业边界由什么决定？"</p>
+
+<h3 class="section-title">6.1 新古典经济学的企业理论</h3>
+
+<div class="card">
+  <span class="tag tag-choice">单选</span><span class="tag tag-judge">判断</span>
+  <table class="compare-table">
+    <tr><th>问题</th><th>新古典回答</th></tr>
+    <tr><td>企业性质</td><td>单纯的<strong>生产函数</strong>，以利润最大化为目标，完成投入→产出转换</td></tr>
+    <tr><td>企业边界</td><td>仅考虑<strong>规模经济</strong>，无严格的边界界定逻辑（企业是个"黑箱"）</td></tr>
+  </table>
+  <p style="margin-top:8px;font-size:13px;color:var(--ink-light);">局限：把企业当作没有内部结构的"点"，无法解释为什么企业存在、为什么大小不同。</p>
+</div>
+
+<h3 class="section-title">6.2 科斯的企业理论</h3>
+
+<div class="card card-blue">
+  <span class="tag tag-define">名词解释</span><span class="tag tag-essay">论述</span>
+  <table class="compare-table">
+    <tr><th>问题</th><th>科斯回答</th></tr>
+    <tr><td>企业性质</td><td><strong><span class="kw">市场机制的替代物</span></strong>，存在是为了节约交易费用</td></tr>
+    <tr><td>企业边界</td><td>企业扩张在<strong>边际组织成本 = 边际交易成本</strong>处停止</td></tr>
+  </table>
+  <div class="formula">企业扩张的均衡条件：MC(组织) = MC(市场交易)</div>
+  <p>直觉：如果企业内部协调一笔交易比在市场上完成更便宜，就把这笔交易纳入企业内部；反之则外包。</p>
+</div>
+
+<h3 class="section-title">6.3 威廉姆森的企业理论</h3>
+
+<div class="card card-green">
+  <span class="tag tag-essay">论述</span><span class="tag tag-multi">多选</span><span class="tag tag-define">名词解释</span>
+  <table class="compare-table">
+    <tr><th>问题</th><th>威廉姆森回答</th></tr>
+    <tr><td>企业性质</td><td><strong><span class="kw">契约的治理结构</span></strong>，也是成本最小化工具</td></tr>
+    <tr><td>企业边界</td><td>由<strong>契约治理方式选择</strong>决定（资产专用性决定治理方式）</td></tr>
+  </table>
+  
+  <p style="margin-top:12px;"><strong>核心推论：</strong></p>
+  <ul class="point-list">
+    <li>资产专用性越高 → 越适合企业治理（纵向一体化）</li>
+    <li>资产专用性越低 → 越适合市场治理</li>
+    <li>中间状态 → 混合治理</li>
+    <li>纵向一体化仅与<strong>交易费用</strong>相关（非技术因素）</li>
+    <li>规模大、M型组织结构的企业更易实现纵向一体化</li>
+  </ul>
+  
+  <h4 style="margin-top:15px;">高能激励 vs 低能激励</h4>
+  <div class="two-col">
+    <div class="card card-orange" style="margin:0;">
+      <strong>高能激励（市场）</strong>
+      <p style="font-size:13px;">报酬与绩效强挂钩，多劳多得。如个体户、提成制</p>
+    </div>
+    <div class="card card-purple" style="margin:0;">
+      <strong>低能激励（企业内部）</strong>
+      <p style="font-size:13px;">固定薪酬为主，稳定但激励弱。如事业单位固定工资</p>
+    </div>
+  </div>
+</div>
+
+<h3 class="section-title">6.4 阿尔钦与德姆塞茨：团队生产理论</h3>
+
+<div class="card card-orange">
+  <span class="tag tag-essay">论述</span><span class="tag tag-multi">多选</span><span class="tag tag-define">名词解释</span>
+  
+  <h4>企业性质</h4>
+  <p>团队生产下，不同要素所有者形成的<strong>契约结构</strong>；存在一个<strong>中心签约人</strong>（监督者）。</p>
+  
+  <h4 style="margin-top:12px;">核心逻辑</h4>
+  <div class="flow-steps">
+    <span class="flow-step">团队生产</span>
+    <span class="flow-arrow">→</span>
+    <span class="flow-step">个人贡献难计量</span>
+    <span class="flow-arrow">→</span>
+    <span class="flow-step">偷懒问题</span>
+    <span class="flow-arrow">→</span>
+    <span class="flow-step">设立监督者</span>
+    <span class="flow-arrow">→</span>
+    <span class="flow-step">监督者获剩余索取权</span>
+  </div>
+  
+  <h4 style="margin-top:15px;">产权结构</h4>
+  <ul class="point-list">
+    <li>企业所有权 = <strong>剩余索取权</strong></li>
+    <li>剩余索取权归<strong>监督者</strong>（形成激励闭环：监督越努力→产出越多→自己剩余收入越多）</li>
+    <li>监督者 = 企业所有者 = 生产资料所有者</li>
+  </ul>
+  
+  <h4 style="margin-top:15px;">企业形式补充</h4>
+  <ul class="point-list">
+    <li><strong>业主制企业：</strong>业主=监督者=剩余索取者</li>
+    <li><strong>公开招股有限责任公司：</strong>优势：筹资能力强、风险分散；劣势：所有权与经营权分离→代理问题</li>
+    <li><strong>非营利企业：</strong>功能是节约生产者与消费者之间的交易成本（消费者不需要担心被宰）</li>
+  </ul>
+</div>
+
+<h3 class="section-title">6.5 新产权理论（GHM理论）</h3>
+
+<div class="card card-purple">
+  <span class="tag tag-define">名词解释</span><span class="tag tag-essay">论述</span>
+  
+  <h4 style="color:var(--accent-purple);">核心概念：剩余控制权</h4>
+  <p><strong>定义：</strong>契约中<span class="key-point"><span class="kw">未明确约定的事项</span></span>的决策权。</p>
+  <p style="margin-top:8px;">由于契约不可能穷尽所有可能情况（不完全契约），总会有未约定的"灰色地带"——谁拥有这些事项的决策权，谁就拥有剩余控制权。</p>
+  
+  <h4 style="margin-top:15px;">企业性质</h4>
+  <p>企业 = 一组资产在同一<strong>剩余控制权</strong>下的集合。拥有企业就是拥有其资产的剩余控制权。</p>
+  
+  <h4 style="margin-top:15px;">不完全契约与效率</h4>
+  <ul class="point-list">
+    <li>即使在完全信息下，也无法订立完美契约（因为不可能穷举所有未来状态）</li>
+    <li>不完全契约导致<strong>事前专用性投资激励不足</strong>（担心投资后被"敲竹杠"，所以投资不足）</li>
+    <li>无论哪种契约安排都存在效率损失</li>
+  </ul>
+  
+  <h4 style="margin-top:15px;">一体化原则</h4>
+  <div class="two-col">
+    <div class="card card-green" style="margin:0;">
+      <strong>适合合并</strong>
+      <p style="font-size:13px;">资产互补性越强（A离开B价值大减）→越适合合并为单一企业</p>
+    </div>
+    <div class="card card-orange" style="margin:0;">
+      <strong>适合拆分</strong>
+      <p style="font-size:13px;">资产独立性越强（各自独立也能运作良好）→越适合保持独立</p>
+    </div>
+  </div>
+</div>
+
+<!-- 企业理论对比导图 -->
+<h4 class="subsection-title">📊 五大企业理论对比总览</h4>
+<div class="card card-kraft">
+  <table class="compare-table">
+    <tr><th>理论/学者</th><th>企业性质</th><th>企业边界决定因素</th><th>关键词</th></tr>
+    <tr><td>新古典</td><td>生产函数</td><td>规模经济</td><td>黑箱、利润最大化</td></tr>
+    <tr><td>科斯</td><td>市场替代物</td><td>组织成本=交易成本</td><td>节约交易费用</td></tr>
+    <tr><td>威廉姆森</td><td>治理结构</td><td>资产专用性→治理选择</td><td>高能/低能激励</td></tr>
+    <tr><td>阿尔钦&德姆塞茨</td><td>团队契约结构</td><td>计量成本→监督需求</td><td>剩余索取权</td></tr>
+    <tr><td>GHM新产权</td><td>剩余控制权集合</td><td>资产互补性/独立性</td><td>不完全契约</td></tr>
+  </table>
+</div>
+
+<div class="trap-box">
+  <ul style="list-style:none;padding:0;">
+    <li>• 科斯和威廉姆森都关注交易费用，但切入角度不同：科斯从"市场vs企业"的替代关系切入，威廉姆森从"契约治理方式选择"切入</li>
+    <li>• "剩余索取权"（阿尔钦）和"剩余控制权"（GHM）是两个不同概念！前者是收入分配权，后者是决策权</li>
+  </ul>
+</div>
+<details class="self-test">
+  <summary>自测练习 · 企业理论（多选/单选/判断）</summary>
+  <div class="test-content">
+    <div class="test-q">
+      <div class="q-stem">【多选题】科斯认为企业边界的决定因素包括：</div>
+      <div class="q-opts">A. 企业内部组织成本&emsp;B. 资产专用性<br>C. 市场交易成本&emsp;D. 规模经济</div>
+      <details class="test-reveal"><summary>查看答案</summary><div class="reveal-ans">AC。科斯认为企业边界在"组织一笔额外交易的边际成本=利用市场完成该交易的边际成本"处。B是威廉姆森强调的，D是新古典经济学的。</div></details>
+    </div>
+    <div class="test-q">
+      <div class="q-stem">【判断题】"剩余索取权"和"剩余控制权"是同一概念。（  ）</div>
+      <details class="test-reveal"><summary>查看答案</summary><div class="reveal-ans">✗ 错误。剩余索取权（阿尔钦&德姆塞茨）是<b>收入分配权</b>——扣除所有合同约定支付后的剩余收入归谁；剩余控制权（GHM新产权理论）是<b>决策权</b>——契约未约定事项由谁做主。</div></details>
+    </div>
+    <div class="test-q">
+      <div class="q-stem">【单选题】认为企业性质是"市场机制的替代物"的学者是：</div>
+      <div class="q-opts">A. 威廉姆森&emsp;B. 阿尔钦&emsp;C. 科斯&emsp;D. 哈特</div>
+      <details class="test-reveal"><summary>查看答案</summary><div class="reveal-ans">C. 科斯。威廉姆森认为企业是"契约的治理结构"；阿尔钦认为是"团队契约结构"；哈特（GHM）认为是"剩余控制权的集合"。</div></details>
+    </div>
+  </div>
+</details>
+
+<!-- ==================== 第七章 ==================== -->
+<div id="ch7" class="chapter-header" style="background: linear-gradient(135deg, #7b5e3b 0%, #4a3520 100%);">
+  <h2>第七章 · 制度变迁理论</h2>
+  <p class="ch-desc">正式规则与非正式规则如何塑造社会运行</p>
+</div>
+
+<h3 class="section-title">7.1 制度的定义</h3>
+
+<div class="card">
+  <span class="tag tag-define">名词解释</span><span class="tag tag-choice">单选</span>
+  <ul class="point-list">
+    <li><strong>舒尔茨（Schultz）：</strong>制度是约束人类行为的规则</li>
+    <li><strong>诺斯（North）：</strong>制度是<span class="kw">社会的游戏规则</span></li>
+  </ul>
+  <p style="margin-top:8px;font-size:13px;color:var(--ink-light);">两者本质一致：制度=规则=约束人的行为框架。诺斯的表述更形象易记。</p>
+</div>
+
+<h3 class="section-title">7.2 正式制度 vs 非正式制度</h3>
+
+<div class="card card-kraft">
+  <span class="tag tag-multi">多选</span><span class="tag tag-essay">论述</span><span class="tag tag-judge">判断</span>
+  
+  <h4>联系</h4>
+  <ul class="point-list">
+    <li>相互补充、共同作用（如法律+道德共同维护社会秩序）</li>
+    <li>可相互转化（长期道德规范→上升为法律；过时法律→沦为无约束力的惯例）</li>
+  </ul>
+  
+  <h4 style="margin-top:15px;">六大区别 ⭐（高频多选/判断）</h4>
+  <table class="compare-table">
+    <tr><th>维度</th><th>正式制度</th><th>非正式制度</th></tr>
+    <tr><td>惩罚机制</td><td>✅ 有明确法律/规章惩罚</td><td>❌ 无正式惩罚（靠舆论、排斥）</td></tr>
+    <tr><td>形态</td><td>有形（成文法律、规章）</td><td>无形（习俗、道德、惯例）</td></tr>
+    <tr><td>实施成本</td><td>高（需要执法机构、法院等）</td><td>低（社会自发维护）</td></tr>
+    <tr><td>稳定性</td><td>较弱（可随时修改废止）</td><td>较强（根深蒂固难以改变）</td></tr>
+    <tr><td>形成周期</td><td>短（立法可快速完成）</td><td>长（需长期积淀）</td></tr>
+    <tr><td>可移植性</td><td>强（可直接借鉴他国法律）</td><td>弱（文化土壤难以移植）</td></tr>
+  </table>
+</div>
+
+<details class="self-test">
+  <summary>自测练习 · 制度变迁（判断/多选）</summary>
+  <div class="test-content">
+    <div class="test-q">
+      <div class="q-stem">【判断题】正式制度比非正式制度更稳定。（  ）</div>
+      <details class="test-reveal"><summary>查看答案</summary><div class="reveal-ans">✗ 错误。非正式制度更稳定！因为深植于文化传统，难以在短期内改变。正式制度反而可以通过立法快速修改。</div></details>
+    </div>
+    <div class="test-q">
+      <div class="q-stem">【判断题】非正式制度没有约束力。（  ）</div>
+      <details class="test-reveal"><summary>查看答案</summary><div class="reveal-ans">✗ 错误。没有<b>正式惩罚</b>≠没有约束力。道德谴责、社会排斥、舆论压力都是强大的非正式约束。</div></details>
+    </div>
+    <div class="test-q">
+      <div class="q-stem">【多选题】正式制度与非正式制度的区别体现在哪些维度？</div>
+      <div class="q-opts">A. 惩罚机制&emsp;B. 形态&emsp;C. 实施成本<br>D. 稳定性&emsp;E. 形成周期&emsp;F. 可移植性</div>
+      <details class="test-reveal"><summary>查看答案</summary><div class="reveal-ans">ABCDEF，全选！六大区别维度：①惩罚机制（有/无）②形态（有形/无形）③实施成本（高/低）④稳定性（弱/强）⑤形成周期（短/长）⑥可移植性（强/弱）。</div></details>
+    </div>
+  </div>
+</details>
+
+<!-- ==================== 应试策略 ==================== -->
+<div id="exam-strategy" class="chapter-header" style="background: linear-gradient(135deg, #1abc9c 0%, #0e6655 100%);">
+  <h2>🎯 应试策略与模拟题</h2>
+  <p class="ch-desc">不只是知道知识点，更要知道怎么拿分</p>
+</div>
+
+<h3 class="section-title">论述题答题框架（10分/题）</h3>
+
+<div class="card card-blue">
+  <p style="font-family:var(--hand-font);font-size:18px;color:var(--accent-blue);margin-bottom:10px;">老师原话：像写小论文一样答题</p>
+  <p><strong>四步框架（约13行空间）：</strong></p>
+  <ol style="padding-left:20px;">
+    <li style="margin:10px 0;"><strong>第一步：定义核心概念（2行）</strong><br>用一句话精准定义题目涉及的核心理论/概念</li>
+    <li style="margin:10px 0;"><strong>第二步：理论观点梳理（4-5行）</strong><br>列出相关学者的不同观点/理论的多个维度/分类</li>
+    <li style="margin:10px 0;"><strong>第三步：个人理解与评价（3行）</strong><br>阐述该理论的意义、局限或启示</li>
+    <li style="margin:10px 0;"><strong>第四步：结合现实案例（3-4行）</strong><br>用一个具体案例说明理论在现实中的应用</li>
+  </ol>
+</div>
+
+<!-- 论述题范文 -->
+<div id="sample-essay"></div>
+<h3 class="section-title">📝 论述题模拟 + 标答范文</h3>
+
+<div class="exam-question">
+  <div class="q-header">
+    <span class="q-type">论述题</span>
+    <span class="q-score">10分</span>
+  </div>
+  <div class="q-text">
+    <strong>请论述科斯定理的三大定理内容，并结合实际案例分析其对解决外部性问题的启示。</strong>
+  </div>
+  <details class="q-answer"><summary></summary><div class="ans-content">
+    <p><strong>一、科斯定理的核心内容</strong></p>
+    <p>科斯定理是新制度经济学解决外部性问题的核心理论框架，包含三个相互关联的命题。</p>
+    <p style="margin-top:8px;"><strong>二、三大定理阐述</strong></p>
+    <p>科斯第一定理指出：在交易费用为零的条件下，无论产权如何初始分配，通过自愿协商，资源配置最终都能达到帕累托最优。这包含"无关性命题"（初始分配不影响最终结果）和"有效性命题"（市场交易总能实现效率最优）。科斯第二定理指出：在交易费用为正的现实世界中，产权初始界定具有经济价值，不同的产权安排会导致不同的资源配置结果，因此产权制度设计本身是重要的。科斯第三定理进一步指出：产权界定本身存在成本，外部性问题可通过市场交易、政府界定产权、税收补贴、企业合并等多种方式解决，需综合比较各方案的成本收益来选择最优方案。</p>
+    <p style="margin-top:8px;"><strong>三、理论评价</strong></p>
+    <p>科斯定理的根本贡献在于揭示了产权制度对资源配置的重要性，突破了传统福利经济学仅依赖政府干预的单一思路。其局限在于第一定理的"交易费用为零"假设在现实中无法成立，但正因如此，第二、第三定理才更具现实指导意义。</p>
+    <p style="margin-top:8px;"><strong>四、案例分析</strong></p>
+    <p>以工厂污染河流为例：若明确界定居民拥有清洁水权（产权界定），工厂可与居民协商赔偿方案继续生产（市场交易），也可由政府征收排污费（税收手段），还可以工厂收购下游农场实现内部化（合并）。选择哪种方式，取决于各方案的交易成本与收益对比。这正是科斯第三定理"多元方案、成本收益择优"思想的现实体现。</p>
+  </div></details>
+</div>
+<div class="exam-question">
+  <div class="q-header">
+    <span class="q-type">论述题</span>
+    <span class="q-score">10分</span>
+  </div>
+  <div class="q-text">
+    <strong>试论述威廉姆森的契约治理理论，说明不同契约类型与治理方式的对应关系及其经济逻辑。</strong>
+  </div>
+  <details class="q-answer"><summary></summary><div class="ans-content">
+    <p><strong>一、威廉姆森契约治理理论概述</strong></p>
+    <p>威廉姆森在麦克尼尔契约三分法的基础上，将契约分为古典契约、新古典契约和关系性契约三种类型，并为每种类型匹配了相应的治理结构，核心逻辑是资产专用性决定治理方式的选择。</p>
+    <p style="margin-top:8px;"><strong>二、三种契约与治理方式</strong></p>
+    <p>古典契约适用于资产专用性为零的标准化交易，对应市场治理——交易如同一锤子买卖，当事人身份不重要，市场竞争本身就是最好的约束。新古典契约适用于资产专用性中等、交易频率较低的交易，对应三方治理——保留交易自主性的同时引入第三方仲裁机构解决争端。关系性契约适用于高资产专用性或高频率交易，对应双方治理或统一治理（纵向一体化）——交易双方深度绑定，市场机制无法有效约束，需要内部化解决。</p>
+    <p style="margin-top:8px;"><strong>三、经济逻辑</strong></p>
+    <p>资产专用性是决定治理方式的关键变量。专用性越高，交易双方被"锁定"的程度越深，机会主义风险越大，市场治理的交易费用越高，因此需要更强的组织控制来替代市场机制。这体现了"制度安排以最小化交易费用为目标"的新制度经济学核心思想。</p>
+    <p style="margin-top:8px;"><strong>四、现实案例</strong></p>
+    <p>以汽车产业为例：标准螺丝螺母的采购属于古典契约（市场治理，哪家便宜买哪家）；专用模具的开发属于新古典契约（约定争议提交行业仲裁）；而核心发动机技术则往往采用纵向一体化——企业自行研发生产（关系性契约/统一治理），因为发动机是高度专用性资产，外包风险过大。</p>
+  </div></details>
+</div>
+<div class="exam-question">
+  <div class="q-header">
+    <span class="q-type">论述题</span>
+    <span class="q-score">10分</span>
+  </div>
+  <div class="q-text">
+    <strong>请阐述新制度经济学中"有限理性"的含义、产生原因及其对经济制度的影响。</strong>
+  </div>
+  <details class="q-answer"><summary></summary><div class="ans-content">
+    <p><strong>一、有限理性的定义</strong></p>
+    <p>有限理性是指经济主体意图追求理性但受到约束而只能达到有限程度的理性状态。代表学者西蒙认为人只能达到"满意"而非"最优"决策；阿罗则从信息不完全和处理能力有限两方面界定有限理性。</p>
+    <p style="margin-top:8px;"><strong>二、产生原因</strong></p>
+    <p>有限理性源于两方面约束：外在约束包括环境复杂性和未来不确定性，使人无法掌握全部信息；内在约束包括人脑信息处理能力有限，以及人们主动选择不充分理性的状态（选择性有限理性）——当追求完全理性的成本过高时，人们理性地选择"不那么理性"。后者的典型表现即X效率，即主观偏好导致的理性不足。</p>
+    <p style="margin-top:8px;"><strong>三、对经济制度的深远影响</strong></p>
+    <p>有限理性是整个新制度经济学的人性基础。正因为有限理性：（1）人无法预见所有情况，故契约必然不完全，需要治理机制；（2）人无法进行充分计算，故交易费用客观存在，需要制度降低；（3）人可能做出次优决策，故产权界定和激励设计至关重要。可以说，如果人是完全理性的，交易费用为零，制度将无存在的必要。</p>
+    <p style="margin-top:8px;"><strong>四、现实启示</strong></p>
+    <p>以消费者网购为例：面对海量商品信息（外在约束），消费者无法逐一比较（内在约束），因此平台设计了评分系统、推荐算法、七天无理由退货等制度安排——本质上都是为有限理性的人降低交易费用。</p>
+  </div></details>
+</div>
+<!-- 综合分析题 -->
+<div id="sample-analysis"></div>
+<h3 class="section-title">📝 综合分析题模拟</h3>
+
+<div class="card card-orange">
+  <p style="font-size:13px;margin-bottom:10px;"><strong>题型特点提醒：</strong>题干含标题+图形+配套文字，文字中有10个带序号的空格，部分只需填一两个字，部分需要写一句话。以下为模拟。</p>
+</div>
+
+<div class="exam-question">
+  <div class="q-header">
+    <span class="q-type">综合分析题</span>
+    <span class="q-score">10分</span>
+  </div>
+  <div class="q-text">
+    <strong>交易费用与企业边界</strong>
+    <p style="margin-top:10px;">根据科斯的企业理论，企业是 ①_____ 的替代物。企业存在的原因是为了节约 ②_____。企业的边界取决于企业组织一笔额外交易的 ③_____ 等于利用市场完成该交易的 ④_____。当企业内部的组织成本随规模扩大而 ⑤_____ 时，企业扩张就会停止。威廉姆森进一步指出，决定治理方式选择的关键变量是 ⑥_____。当该变量为零时，适合采用 ⑦_____ 治理；当该变量很高时，适合采用 ⑧_____ 治理（即纵向一体化）。企业内部采用的是 ⑨_____ 激励，而市场采用的是 ⑩_____ 激励。</p>
+  </div>
+  <details class="q-answer"><summary></summary><div class="ans-content">
+    <p>① 市场机制（市场）</p>
+    <p>② 交易费用</p>
+    <p>③ 边际成本</p>
+    <p>④ 边际成本（边际交易成本）</p>
+    <p>⑤ 递增（上升）</p>
+    <p>⑥ 资产专用性</p>
+    <p>⑦ 市场</p>
+    <p>⑧ 统一（企业/一体化）</p>
+    <p>⑨ 低能</p>
+    <p>⑩ 高能</p>
+  </div></details>
+</div>
+<div class="exam-question">
+  <div class="q-header">
+    <span class="q-type">综合分析题</span>
+    <span class="q-score">10分</span>
+  </div>
+  <div class="q-text">
+    <strong>产权理论与公共物品供给</strong>
+    <p style="margin-top:10px;">产权的定义是基于物的使用所形成的 ①_____ 之间的社会关系。产权最根本的属性是 ②_____。按照排他性和竞争性两个维度，灯塔属于 ③_____ 物品，公共牧地属于 ④_____ 物品。德姆塞茨认为产权起源的动力之一是 ⑤_____ 的变动使得界定产权变得有利可图。诺斯则从 ⑥_____ 增长角度解释产权的起源。产权界定不是越清晰越好，其标准是界定的 ⑦_____ 等于边际收益。产权界定不清的地带称为 ⑧_____，它的存在会诱发 ⑨_____ 行为。传统观点认为公共物品应由政府供给，而新制度经济学认为应依据 ⑩_____ 来选择供给主体。</p>
+  </div>
+  <details class="q-answer"><summary></summary><div class="ans-content">
+    <p>① 人与人</p>
+    <p>② 排他性</p>
+    <p>③ 纯公共（公共）</p>
+    <p>④ 公共资源（公共池塘资源）</p>
+    <p>⑤ 经济价值</p>
+    <p>⑥ 人口</p>
+    <p>⑦ 边际成本</p>
+    <p>⑧ 公共领域</p>
+    <p>⑨ 寻租</p>
+    <p>⑩ 成本收益（比较）</p>
+  </div></details>
+</div>
+<!-- ==================== 速记清单 ==================== -->
+<div id="quick-ref" class="chapter-header" style="background: linear-gradient(135deg, #e74c3c 0%, #922b21 100%);">
+  <h2>⚡ 考前速记清单</h2>
+  <p class="ch-desc">最后一小时看这里——高频名词解释 + 判断陷阱 + 多选常考</p>
+</div>
+
+<h3 class="section-title">高频名词解释（5选5，必背）</h3>
+
+<div class="card">
+  <details>
+    <summary>1. 交易费用</summary>
+    <div class="detail-content">交易过程中产生的一切费用，包括搜寻信息、谈判协商、签订契约、监督执行等环节的成本，本质是社会资源的真实损耗。</div>
+  </details>
+  <details>
+    <summary>2. 有限理性</summary>
+    <div class="detail-content">经济主体意图追求理性但受外在约束（环境复杂、信息不完全）和内在约束（认知能力有限、主动选择不完全理性）的限制，只能达到有限程度的理性。</div>
+  </details>
+  <details>
+    <summary>3. 资产专用性</summary>
+    <div class="detail-content">资产被锁定在特定用途的程度，即资产转作他用时的价值损失程度。专用性越高，资产对特定交易关系的依赖越强。</div>
+  </details>
+  <details>
+    <summary>4. 科斯第一定理</summary>
+    <div class="detail-content">在交易费用为零的条件下，无论产权如何初始配置，通过自愿市场交易，资源最终都能达到帕累托最优配置。</div>
+  </details>
+  <details>
+    <summary>5. 机会主义</summary>
+    <div class="detail-content">经济主体不顾道德约束、无底线地追逐自身利益的行为，包括欺骗、隐瞒信息、违约等，是极致的利己主义。</div>
+  </details>
+  <details>
+    <summary>6. 外部性</summary>
+    <div class="detail-content">经济主体的行为对他人产生了未通过市场价格机制体现的影响（成本或收益），导致市场配置偏离帕累托最优。</div>
+  </details>
+  <details>
+    <summary>7. 敲竹杠（Hold-up）</summary>
+    <div class="detail-content">针对具有专用性的资产交易，一方在事后利用对方资产的可剥削性准租金实施的机会主义行为。</div>
+  </details>
+  <details>
+    <summary>8. 准租金</summary>
+    <div class="detail-content">资产在当前最佳用途中的价值超出其残值（次优用途价值）的部分。资产专用性越高，准租金越大。</div>
+  </details>
+  <details>
+    <summary>9. 剩余控制权</summary>
+    <div class="detail-content">契约中未明确约定的事项的决策权。由于契约不完全，总存在未约定的"灰色地带"，谁拥有这些事项的决策权即拥有剩余控制权。</div>
+  </details>
+  <details>
+    <summary>10. 公共领域</summary>
+    <div class="detail-content">产权界定模糊的地带，是产权不完全界定的必然结果，任何社会都绝对存在。政府管制会创造新的公共领域并诱发寻租。</div>
+  </details>
+  <details>
+    <summary>11. 寻租</summary>
+    <div class="detail-content">经济主体耗费资源去谋取垄断利润或超额利润的活动，是纯粹的社会资源浪费，不创造任何生产性价值。</div>
+  </details>
+  <details>
+    <summary>12. 默认契约</summary>
+    <div class="detail-content">行业内的潜规则/惯例，是市场竞争的自然结果，通过提前预估未来收益损失形成补偿机制来约束交易行为。</div>
+  </details>
+</div>
+
+<h3 class="section-title">⚠️ 判断题陷阱清单（True/False）</h3>
+
+<div class="card card-red">
+  <table class="compare-table">
+    <tr><th>陷阱表述</th><th>正误</th><th>正确理解</th></tr>
+    <tr><td>交易费用只会阻碍交易</td><td style="color:red;font-weight:700;">×</td><td>双重作用：既可限制也可（通过制度降低后）鼓励交易</td></tr>
+    <tr><td>经济越发展，交易费用越低</td><td style="color:red;font-weight:700;">×</td><td>单笔↓，总量↑</td></tr>
+    <tr><td>潜在交易对手越多，交易费用越高</td><td style="color:red;font-weight:700;">×</td><td>对手越多→竞争越充分→费用越低</td></tr>
+    <tr><td>只有涉及所有权转移才算交易</td><td style="color:red;font-weight:700;">×</td><td>威廉姆森：技术边界转移也是交易</td></tr>
+    <tr><td>正式制度比非正式制度稳定</td><td style="color:red;font-weight:700;">×</td><td>非正式制度更稳定（文化传统根深蒂固）</td></tr>
+    <tr><td>产权界定越清晰越好</td><td style="color:red;font-weight:700;">×</td><td>边际成本=边际收益时停止（科斯第三定理）</td></tr>
+    <tr><td>公共物品只能由政府供给</td><td style="color:red;font-weight:700;">×</td><td>依据成本收益选择供给主体</td></tr>
+    <tr><td>科斯定理认为政府不该干预外部性</td><td style="color:red;font-weight:700;">×</td><td>多元方案比较，政府干预是选项之一</td></tr>
+    <tr><td>正外部性不会造成效率损失</td><td style="color:red;font-weight:700;">×</td><td>正外部性导致产量不足，也是效率损失</td></tr>
+    <tr><td>非正式制度没有约束力</td><td style="color:red;font-weight:700;">×</td><td>无正式惩罚≠无约束力（道德谴责、社会排斥）</td></tr>
+    <tr><td>有限理性等于非理性</td><td style="color:red;font-weight:700;">×</td><td>人追求理性但受约束，依然是理性的</td></tr>
+    <tr><td>X效率指企业内部效率低下</td><td style="color:red;font-weight:700;">×</td><td>X效率描述人主动选择不完全理性的状态</td></tr>
+  </table>
+</div>
+
+<h3 class="section-title">📋 多选题高频考点</h3>
+
+<div class="card">
+  <details>
+    <summary>交易费用测量的四大难点是？</summary>
+    <div class="detail-content">概念界定不统一 / 与生产费用交织 / 潜在交易不可测 / 一价定律失效</div>
+  </details>
+  <details>
+    <summary>有限理性的外在约束包括？</summary>
+    <div class="detail-content">环境复杂 / 存在不确定性</div>
+  </details>
+  <details>
+    <summary>产权的微观功能包括？</summary>
+    <div class="detail-content">激励与约束 / 外部性内部化 / 降低不确定性</div>
+  </details>
+  <details>
+    <summary>德姆塞茨产权起源的四大动力？</summary>
+    <div class="detail-content">经济价值变动 / 技术革新 / 新市场开拓 / 旧产权制度调整</div>
+  </details>
+  <details>
+    <summary>代理成本的三大构成？</summary>
+    <div class="detail-content">委托人监督支出 / 代理人保证支出 / 剩余损失</div>
+  </details>
+  <details>
+    <summary>对庇古方案的三大批判？</summary>
+    <div class="detail-content">政府非完全理性 / 外部性问题复杂超出政府处理能力 / 干预本身有成本且催生寻租</div>
+  </details>
+  <details>
+    <summary>无国家阶段的产权保护机制？</summary>
+    <div class="detail-content">武力/武力威慑（核心）/ 复仇机制 / 横向忠诚 / 补偿机制</div>
+  </details>
+  <details>
+    <summary>正式制度与非正式制度的六大区别维度？</summary>
+    <div class="detail-content">惩罚机制 / 形态 / 实施成本 / 稳定性 / 形成周期 / 可移植性</div>
+  </details>
+  <details>
+    <summary>交易费用的影响因素？</summary>
+    <div class="detail-content">机会主义 / 资产专用性 / 潜在交易对手（数量）/ 4P定理（人格化程度）</div>
+  </details>
+  <details>
+    <summary>威廉姆森契约内容三要素？</summary>
+    <div class="detail-content">资产专用性 / 价格 / 保护机制</div>
+  </details>
+</div>
+
+<!-- 结尾 -->
+<div style="text-align:center;margin:60px 0 30px;padding:30px;background:var(--paper-mid);border-radius:12px;">
+  <p style="font-family:var(--hand-font);font-size:24px;color:var(--ink-mid);">祝考试顺利，手到擒来 🎓</p>
+  <p style="font-size:13px;color:var(--ink-light);margin-top:8px;">全书7章 · 50+考点 · 无遗漏覆盖 · 2025-2026-2学期</p>
+</div>
+
+</div><!-- end main-content -->
+
+<script>
+// 顶部导航平滑滚动
+document.querySelectorAll('.top-nav a').forEach(a => {
+  a.addEventListener('click', (e) => {
+    e.preventDefault();
+    const id = a.getAttribute('href').slice(1);
+    const target = document.getElementById(id);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+// 滚动入场动画
+const observerOptions = {
+  threshold: 0.08,
+  rootMargin: '0px 0px -40px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, index) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, index * 60);
+      observer.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
+// 对所有主要内容块添加动画
+document.querySelectorAll('.card, .chapter-header, .exam-question, .trap-box, .exam-info-grid, .compare-table, .section-title').forEach(el => {
+  el.classList.add('animate-in');
+  observer.observe(el);
+});
+
+// 顶部导航当前章节高亮 + 滚动阴影
+const navLinks = document.querySelectorAll('.top-nav a[href^="#"]');
+const navSections = [];
+navLinks.forEach(link => {
+  const id = link.getAttribute('href').slice(1);
+  const section = document.getElementById(id);
+  if (section) navSections.push({ el: section, link: link });
+});
+
+const topNav = document.getElementById('topNav');
+let ticking = false;
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    requestAnimationFrame(() => {
+      // Shadow on scroll
+      if (window.scrollY > 20) {
+        topNav.classList.add('scrolled');
+      } else {
+        topNav.classList.remove('scrolled');
+      }
+      // Active link
+      const scrollPos = window.scrollY + 140;
+      let current = navSections[0];
+      navSections.forEach(s => {
+        if (s.el.offsetTop <= scrollPos) current = s;
+      });
+      navLinks.forEach(l => l.classList.remove('active'));
+      if (current) current.link.classList.add('active');
+      ticking = false;
+    });
+    ticking = true;
+  }
+});
+
+// 页面标题入场动画
+window.addEventListener('DOMContentLoaded', () => {
+  const title = document.querySelector('.page-title');
+  const subtitle = document.querySelector('.page-subtitle');
+  if (title) {
+    title.style.opacity = '0';
+    title.style.transform = 'translateY(-20px)';
+    title.style.transition = 'opacity 0.8s, transform 0.8s';
+    setTimeout(() => {
+      title.style.opacity = '1';
+      title.style.transform = 'translateY(0)';
+    }, 200);
+  }
+  if (subtitle) {
+    subtitle.style.opacity = '0';
+    subtitle.style.transition = 'opacity 0.8s';
+    setTimeout(() => { subtitle.style.opacity = '1'; }, 500);
+  }
+});
+</script>
+
+</body>
+</html>
