@@ -2577,5 +2577,278 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
+<!-- AI助教系统 -->
+<style>
+.ai-fab {
+  position: fixed; right: 24px; bottom: 24px; z-index: 9999;
+  width: 52px; height: 52px; border-radius: 50%;
+  background: linear-gradient(135deg, #7c3aed, #4f46e5);
+  color: #fff; border: none; cursor: pointer;
+  font-size: 24px; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 20px rgba(124,58,237,0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.ai-fab:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(124,58,237,0.5); }
+
+.ai-sel-tip {
+  position: fixed; z-index: 9998;
+  background: linear-gradient(135deg, #7c3aed, #4f46e5);
+  color: #fff; padding: 6px 14px; border-radius: 18px;
+  font-size: 13px; font-weight: 600; cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  display: none; user-select: none;
+  animation: fadeInUp 0.2s ease;
+}
+
+.ai-panel {
+  position: fixed; right: 20px; bottom: 86px; z-index: 9999;
+  width: 380px; max-height: 520px;
+  background: #fff; border-radius: 16px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+  display: none; flex-direction: column;
+  overflow: hidden; border: 1px solid #e5e7eb;
+}
+.ai-panel.open { display: flex; animation: fadeInUp 0.3s ease; }
+
+.ai-panel-header {
+  padding: 14px 18px; display: flex; align-items: center; justify-content: space-between;
+  background: linear-gradient(135deg, #7c3aed, #4f46e5); color: #fff;
+}
+.ai-panel-header h4 { margin: 0; font-size: 15px; }
+.ai-panel-close {
+  background: rgba(255,255,255,0.2); border: none; color: #fff;
+  width: 28px; height: 28px; border-radius: 50%; cursor: pointer;
+  font-size: 16px; display: flex; align-items: center; justify-content: center;
+}
+
+.ai-context {
+  padding: 10px 16px; background: #f5f3ff; border-bottom: 1px solid #ede9fe;
+  font-size: 12px; color: #6d28d9; max-height: 60px; overflow-y: auto;
+}
+.ai-context::before { content: '📌 选中内容：'; font-weight: 600; }
+
+.ai-messages {
+  flex: 1; overflow-y: auto; padding: 14px 16px;
+  min-height: 180px; max-height: 320px;
+}
+.ai-msg { margin: 8px 0; line-height: 1.7; font-size: 14px; }
+.ai-msg.user {
+  text-align: right;
+}
+.ai-msg.user span {
+  background: #7c3aed; color: #fff; padding: 8px 14px;
+  border-radius: 14px 14px 4px 14px; display: inline-block; max-width: 85%; text-align: left;
+}
+.ai-msg.bot span {
+  background: #f3f4f6; color: #1f2937; padding: 10px 14px;
+  border-radius: 14px 14px 14px 4px; display: inline-block; max-width: 90%; text-align: left;
+}
+.ai-msg.bot span strong { color: #7c3aed; }
+.ai-typing { color: #9ca3af; font-size: 13px; padding: 4px 0; }
+
+.ai-input-row {
+  padding: 10px 14px; border-top: 1px solid #f0f0f0;
+  display: flex; gap: 8px; background: #fafafa;
+}
+.ai-input-row input {
+  flex: 1; border: 1.5px solid #e5e7eb; border-radius: 10px;
+  padding: 9px 14px; font-size: 13px; outline: none;
+  transition: border-color 0.2s;
+}
+.ai-input-row input:focus { border-color: #7c3aed; }
+.ai-input-row button {
+  background: #7c3aed; color: #fff; border: none;
+  padding: 9px 16px; border-radius: 10px; cursor: pointer;
+  font-size: 13px; font-weight: 600; white-space: nowrap;
+}
+.ai-input-row button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.ai-key-prompt {
+  padding: 16px; text-align: center; font-size: 13px; color: #6b7280;
+}
+.ai-key-prompt input {
+  width: 100%; margin: 8px 0; padding: 8px 12px;
+  border: 1.5px solid #e5e7eb; border-radius: 8px; font-size: 13px;
+}
+.ai-key-prompt button {
+  background: #7c3aed; color: #fff; border: none;
+  padding: 8px 20px; border-radius: 8px; cursor: pointer; margin-top: 4px;
+}
+.ai-key-prompt a { color: #7c3aed; font-size: 12px; }
+
+@media (max-width: 500px) {
+  .ai-panel { right: 8px; left: 8px; width: auto; bottom: 76px; }
+}
+</style>
+
+<button class="ai-fab" id="aiFab" title="AI助教">🤖</button>
+<div class="ai-sel-tip" id="aiSelTip">🤖 问AI助教</div>
+<div class="ai-panel" id="aiPanel">
+  <div class="ai-panel-header">
+    <h4>🤖 新制度经济学 AI助教</h4>
+    <button class="ai-panel-close" id="aiClose">✕</button>
+  </div>
+  <div class="ai-context" id="aiContext" style="display:none;"></div>
+  <div class="ai-messages" id="aiMessages">
+    <div class="ai-msg bot"><span>你好！我是你的新制度经济学AI助教 📚<br><br>使用方法：<strong>选中网页上看不懂的文字</strong>，点击「问AI助教」按钮，我会帮你通俗解释。<br><br>你也可以直接在下方输入问题。</span></div>
+  </div>
+  <div class="ai-key-prompt" id="aiKeyPrompt" style="display:none;">
+    <p>首次使用需输入 DeepSeek API Key：</p>
+    <input type="password" id="aiKeyInput" placeholder="sk-...">
+    <br><button onclick="saveApiKey()">保存</button>
+    <br><a href="https://platform.deepseek.com/api_keys" target="_blank">→ 获取API Key</a>
+  </div>
+  <div class="ai-input-row">
+    <input type="text" id="aiInput" placeholder="输入你的问题..." autocomplete="off">
+    <button id="aiSend" onclick="sendAiMsg()">发送</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  const fab = document.getElementById('aiFab');
+  const panel = document.getElementById('aiPanel');
+  const closeBtn = document.getElementById('aiClose');
+  const selTip = document.getElementById('aiSelTip');
+  const ctx = document.getElementById('aiContext');
+  const msgs = document.getElementById('aiMessages');
+  const input = document.getElementById('aiInput');
+  const keyPrompt = document.getElementById('aiKeyPrompt');
+  let selectedText = '';
+  let chatHistory = [];
+
+  // Toggle panel
+  fab.onclick = () => {
+    panel.classList.toggle('open');
+    if(panel.classList.contains('open')) checkKey();
+  };
+  closeBtn.onclick = () => panel.classList.remove('open');
+
+  // Selection detection
+  document.addEventListener('mouseup', (e) => {
+    if(e.target.closest('.ai-panel') || e.target.closest('.ai-sel-tip')) return;
+    setTimeout(() => {
+      const sel = window.getSelection().toString().trim();
+      if(sel.length > 2 && sel.length < 500) {
+        const range = window.getSelection().getRangeAt(0);
+        const rect = range.getBoundingClientRect();
+        selTip.style.left = Math.min(rect.left + rect.width/2 - 50, window.innerWidth - 130) + 'px';
+        selTip.style.top = (rect.top - 40 + window.scrollY) + 'px';
+        selTip.style.display = 'block';
+        selTip.onclick = () => {
+          selectedText = sel;
+          ctx.textContent = sel.length > 80 ? sel.slice(0,80)+'...' : sel;
+          ctx.style.display = 'block';
+          panel.classList.add('open');
+          selTip.style.display = 'none';
+          checkKey();
+          // Auto-ask
+          askAI('请用最通俗易懂的方式解释一下这段内容，如果涉及专业概念请举个生活中的例子帮助理解：\n\n「' + sel + '」');
+        };
+      } else {
+        selTip.style.display = 'none';
+      }
+    }, 10);
+  });
+  document.addEventListener('mousedown', (e) => {
+    if(!e.target.closest('.ai-sel-tip')) selTip.style.display = 'none';
+  });
+
+  // API Key management
+  function checkKey() {
+    const k = localStorage.getItem('nie_ai_key');
+    keyPrompt.style.display = k ? 'none' : 'block';
+  }
+  window.saveApiKey = function() {
+    const k = document.getElementById('aiKeyInput').value.trim();
+    if(k) { localStorage.setItem('nie_ai_key', k); keyPrompt.style.display = 'none'; }
+  };
+
+  // Send message
+  window.sendAiMsg = function() {
+    const q = input.value.trim();
+    if(!q) return;
+    input.value = '';
+    askAI(q);
+  };
+  input.addEventListener('keydown', (e) => { if(e.key==='Enter') window.sendAiMsg(); });
+
+  function addMsg(role, text) {
+    const d = document.createElement('div');
+    d.className = 'ai-msg ' + role;
+    const s = document.createElement('span');
+    // Simple markdown-like formatting
+    s.innerHTML = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
+    d.appendChild(s);
+    msgs.appendChild(d);
+    msgs.scrollTop = msgs.scrollHeight;
+    return s;
+  }
+
+  async function askAI(question) {
+    const key = localStorage.getItem('nie_ai_key');
+    if(!key) { checkKey(); return; }
+
+    addMsg('user', question.length > 100 ? question.slice(0,100)+'...' : question);
+    const botSpan = addMsg('bot', '<span class="ai-typing">正在思考...</span>');
+
+    const sysPrompt = `你是新制度经济学的专业辅导老师，学生正在复习期末考试。你的职责是：
+1. 用最通俗易懂的语言解释概念，像给完全不懂的人讲课一样
+2. 多用生活中的例子帮助理解（比如买菜、租房、开公司等）
+3. 如果涉及易混淆的概念，主动对比区分
+4. 回答控制在200字以内，简洁有力
+5. 如果是考试重点，提示可能出什么题型`;
+
+    chatHistory.push({role:'user', content: question});
+    const messages = [{role:'system', content: sysPrompt}, ...chatHistory.slice(-6)];
+
+    try {
+      document.getElementById('aiSend').disabled = true;
+      const resp = await fetch('https://api.deepseek.com/chat/completions', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json', 'Authorization':'Bearer '+key},
+        body: JSON.stringify({model:'deepseek-chat', messages, max_tokens: 512, temperature: 0.7, stream: true})
+      });
+
+      if(!resp.ok) {
+        const err = await resp.text();
+        botSpan.innerHTML = '❌ API错误: ' + (resp.status === 401 ? 'Key无效，请点右下角🤖重新设置' : resp.status);
+        if(resp.status === 401) localStorage.removeItem('nie_ai_key');
+        document.getElementById('aiSend').disabled = false;
+        return;
+      }
+
+      // Stream reading
+      const reader = resp.body.getReader();
+      const decoder = new TextDecoder();
+      let fullText = '';
+      botSpan.innerHTML = '';
+
+      while(true) {
+        const {done, value} = await reader.read();
+        if(done) break;
+        const chunk = decoder.decode(value);
+        const lines = chunk.split('\n').filter(l => l.startsWith('data: '));
+        for(const line of lines) {
+          const data = line.slice(6);
+          if(data === '[DONE]') break;
+          try {
+            const j = JSON.parse(data);
+            const delta = j.choices?.[0]?.delta?.content || '';
+            fullText += delta;
+            botSpan.innerHTML = fullText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
+            msgs.scrollTop = msgs.scrollHeight;
+          } catch(e) {}
+        }
+      }
+      chatHistory.push({role:'assistant', content: fullText});
+    } catch(e) {
+      botSpan.innerHTML = '❌ 网络错误，请检查网络连接';
+    }
+    document.getElementById('aiSend').disabled = false;
+  }
+})();
+</script>
+
 </body>
 </html>
