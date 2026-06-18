@@ -2733,7 +2733,7 @@ window.addEventListener('DOMContentLoaded', () => {
         const range = window.getSelection().getRangeAt(0);
         const rect = range.getBoundingClientRect();
         selTip.style.left = Math.min(rect.left + rect.width/2 - 50, window.innerWidth - 130) + 'px';
-        selTip.style.top = (rect.top - 40 + window.scrollY) + 'px';
+        selTip.style.top = (rect.top - 40) + 'px';
         selTip.style.display = 'block';
         selTip.onclick = () => {
           selectedText = sel;
